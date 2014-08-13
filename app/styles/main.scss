@@ -1,0 +1,101 @@
+$icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+$filter_background : RGBA(255,255,255,0.7);
+$modal_background : RGBA(0,0,0,0.7);
+
+@import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+
+h1,h2,h3 {
+  font-family: 'Open Sans', sans-serif;
+}
+.navbar-nav {
+  li:hover {
+    background: #eee;
+    a:hover {
+      color: dodgerblue;
+    }
+  }
+}
+/* Space out content a bit */
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+ul.home_pictures {
+  list-style: none;
+  width: 100%;
+
+  li {
+    border: 1px solid grey;
+    border-radius: 0.8em;
+    margin-bottom: 2em;
+    padding: 0.5em;
+  }
+}
+
+ul.listing_author {
+  list-style: none;
+  width: 100%;
+
+  li {
+    margin-bottom: 2em;
+    border: 3px dashed white;
+    cursor: pointer;
+  }
+
+  li:hover {
+    border: 3px dashed yellowgreen;
+  }
+}
+
+#modal_login {
+  position: fixed;
+  width: 60%;
+  height: 600px;
+  z-index: 8;
+  left: 20%;
+  background: $modal_background;
+  padding: 2em;
+  color: #eee;
+
+}
+
+div.filter_modal {
+  background: $filter_background;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 6;
+}
+
+.display_modal.ng-hide-remove {
+  opacity: 0;
+  display: block !important;
+  transition: all 1s;
+  animation-duration:1s;
+  animation-fill-mode:both;
+  animation-name: lightSpeedIn;
+
+}
+
+.display_modal.ng-hide-remove-active {
+  opacity: 1;
+}
+
+.display_modal.ng-hide-add {
+  animation-duration:1s;
+  animation-fill-mode:both;
+  animation-name: lightSpeedOut;
+}
+
+p.more_infos {
+  padding: 1em;
+  text-align: right;
+  color: cornflowerblue;
+  cursor: pointer;
+}
+
+p.more_infos:hover {
+  color: forestgreen;
+}
+

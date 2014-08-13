@@ -1,0 +1,56 @@
+<div ng-include="'partials/navbar'"></div>
+
+<div class="row">
+  <ul class="home_pictures">
+    <div class="col-lg-3 col-sm-3 col-xs-12 view"
+         ng-repeat="auteur in auteurs">
+      <h2 style="text-align: center;">{{auteur.nom_auteur}}</h2>
+      <li>
+
+        <img class="thumbnail img-responsive" ng-src='http://lorempixum.com/600/350/nightlife/{{auteur.index }}'>
+
+        <p style="padding: 0.5em;">
+          Istum amici Quid amici Haec societates in ut graves Haec est in
+          amicitiae honorem honorem enim reperiuntur ubi Ad Ennius ut recte publica
+          iis difficillime qui plerisque qui Ad non.
+        </p>
+
+        <div style="padding: 0.5em;" ng-show="auteur.show_full_bio">
+          <p>
+          Eminuit autem inter humilia supergressa iam impotentia fines
+          mediocrium delictorum nefanda Clematii cuiusdam Alexandrini
+          nobilis mors repentina; cuius socrus cum misceri sibi generum,
+          flagrans eius amore, non impetraret, ut ferebatur, per palatii
+          pseudothyrum introducta, oblato pretioso reginae monili id
+          adsecuta est, ut ad Honoratum tum comitem orientis formula
+          missa letali omnino scelere nullo contactus idem Clematius
+          nec hiscere nec loqui permissus occideretur.
+        </p>
+
+        <p>
+          Quam ob rem circumspecta cautela observatum est deinceps et
+          cum edita montium petere coeperint grassatores, loci iniquitati
+          milites cedunt. ubi autem in planitie potuerint reperiri, quod
+          contingit adsidue, nec exsertare lacertos nec crispare permissi
+          tela, quae vehunt bina vel terna, pecudum ritu inertium
+          trucidantur.
+          </p>
+
+          <p>Quod si rectum statuerimus vel concedere amicis,
+            quidquid velint, vel impetrare ab iis, quidquid velimus,
+            perfecta quidem sapientia si simus, nihil habeat res vitii;
+            sed loquimur de iis amicis qui ante oculos sunt, quos vidimus
+            aut de quibus memoriam accepimus, quos novit vita communis.
+            Ex hoc numero nobis exempla sumenda sunt, et eorum quidem
+            maxime qui ad sapientiam proxime accedunt.
+          </p>
+        </div>
+
+        <p class="more_infos" ng-hide="auteur.show_full_bio"
+            ng-click="auteur.show_full_bio = true;">
+          En savoir plus
+        </p>
+      </li>
+    </div>
+  </ul>
+</div>

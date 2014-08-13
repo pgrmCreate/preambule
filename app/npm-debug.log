@@ -1,0 +1,140 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', 'http-sync' ]
+2 info using npm@1.4.14
+3 info using node@v0.10.29
+4 verbose node symlink /usr/bin/node
+5 warn package.json preambule@0.0.0 No description
+6 warn package.json preambule@0.0.0 No repository field.
+7 warn package.json preambule@0.0.0 No README data
+8 verbose readDependencies using package.json deps
+9 verbose cache add [ 'http-sync', null ]
+10 verbose cache add name=undefined spec="http-sync" args=["http-sync",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'http-sync',
+11 verbose parsed url   path: 'http-sync',
+11 verbose parsed url   href: 'http-sync' }
+12 silly lockFile 13daab09-http-sync http-sync
+13 verbose lock http-sync /home/jb/.npm/13daab09-http-sync.lock
+14 silly lockFile 13daab09-http-sync http-sync
+15 silly lockFile 13daab09-http-sync http-sync
+16 verbose addNamed [ 'http-sync', '' ]
+17 verbose addNamed [ null, '*' ]
+18 silly lockFile 60b3f5b0-http-sync http-sync@
+19 verbose lock http-sync@ /home/jb/.npm/60b3f5b0-http-sync.lock
+20 silly addNameRange { name: 'http-sync', range: '*', hasData: false }
+21 verbose url raw http-sync
+22 verbose url resolving [ 'https://registry.npmjs.org/', './http-sync' ]
+23 verbose url resolved https://registry.npmjs.org/http-sync
+24 info trying registry request attempt 1 at 12:55:26
+25 verbose etag "7ZZTXZLZF9L5U18DZXOSUZ17F"
+26 http GET https://registry.npmjs.org/http-sync
+27 http 304 https://registry.npmjs.org/http-sync
+28 silly registry.get cb [ 304,
+28 silly registry.get   { date: 'Thu, 31 Jul 2014 16:55:26 GMT',
+28 silly registry.get     server: 'Apache',
+28 silly registry.get     via: '1.1 varnish',
+28 silly registry.get     'last-modified': 'Thu, 31 Jul 2014 16:55:26 GMT',
+28 silly registry.get     'cache-control': 'max-age=60',
+28 silly registry.get     etag: '"7ZZTXZLZF9L5U18DZXOSUZ17F"',
+28 silly registry.get     'x-served-by': 'cache-iad2126-IAD',
+28 silly registry.get     'x-cache': 'MISS',
+28 silly registry.get     'x-cache-hits': '0',
+28 silly registry.get     'x-timer': 'S1406825726.354481,VS0,VE100',
+28 silly registry.get     vary: 'Accept',
+28 silly registry.get     'content-length': '0',
+28 silly registry.get     'keep-alive': 'timeout=10, max=50',
+28 silly registry.get     connection: 'Keep-Alive' } ]
+29 verbose etag http-sync from cache
+30 silly addNameRange number 2 { name: 'http-sync', range: '*', hasData: true }
+31 silly addNameRange versions [ 'http-sync', [ '0.0.1', '0.0.2', '0.0.3', '0.0.4' ] ]
+32 verbose addNamed [ 'http-sync', '0.0.4' ]
+33 verbose addNamed [ '0.0.4', '0.0.4' ]
+34 silly lockFile f068d3c8-http-sync-0-0-4 http-sync@0.0.4
+35 verbose lock http-sync@0.0.4 /home/jb/.npm/f068d3c8-http-sync-0-0-4.lock
+36 silly lockFile f068d3c8-http-sync-0-0-4 http-sync@0.0.4
+37 silly lockFile f068d3c8-http-sync-0-0-4 http-sync@0.0.4
+38 silly lockFile 60b3f5b0-http-sync http-sync@
+39 silly lockFile 60b3f5b0-http-sync http-sync@
+40 silly resolved [ { name: 'http-sync',
+40 silly resolved     version: '0.0.4',
+40 silly resolved     description: 'A synchronous HTTP Client library for node.js',
+40 silly resolved     main: 'http-sync.js',
+40 silly resolved     scripts: { install: 'node-gyp rebuild' },
+40 silly resolved     repository: { type: 'git', url: 'git://github.com/dhruvbird/http-sync.git' },
+40 silly resolved     author: { name: 'Dhruv Matani' },
+40 silly resolved     contributors: [ [Object], [Object], [Object] ],
+40 silly resolved     license: 'BSD',
+40 silly resolved     gypfile: true,
+40 silly resolved     readmeFilename: 'README.md',
+40 silly resolved     readme: '# http-sync\n\nhttp-sync is a compiled Node.js extension that provides syncronous http calls.\n\n# Installing\n\nYou must have libcurl installed in order to compile this extension.\n\nOn Ubuntu, you can run: `sudo apt-get install libcurl4-openssl-dev`\n\n# Using\n\n```javascript\n// example with default options\nhttpSync = require(\'http-sync\');\n\nvar request = httpSync.request({\n    method: \'GET\',\n    headers: {},\n    body: \'\',\n\n    protocol: \'http\',\n    host: \'127.0.0.1\',\n    port: 80, //443 if protocol = https\n    path: \'/\'\n});\n\nvar timedout = false;\nreq.setTimeout(10, function() {\n    console.log("Request Timedout!");\n    timedout = true;\n});\nvar response = request.end();\n\nif (!timedout) {\n    console.log(response);\n    console.log(response.body.toString());\n}\n```\n\n# Contributing\n\n## node >= v0.8.0\n\n`node-gyp configure && node-gyp build`\n\n## node < v0.8.0\n\nYou will need:\n\n* node.js source code\n* v8 source code\n* libcurl development package\n\nBuilding:\n\n    node-waf configure && node-waf build\n\n## testing\n\nRun the test.js file:\n\n    node test.js\n\n',
+40 silly resolved     bugs: { url: 'https://github.com/dhruvbird/http-sync/issues' },
+40 silly resolved     homepage: 'https://github.com/dhruvbird/http-sync',
+40 silly resolved     _id: 'http-sync@0.0.4',
+40 silly resolved     _from: 'http-sync@' } ]
+41 info install http-sync@0.0.4 into /home/jb/projets/preambule
+42 info installOne http-sync@0.0.4
+43 info /home/jb/projets/preambule/node_modules/http-sync unbuild
+44 verbose tar unpack /home/jb/.npm/http-sync/0.0.4/package.tgz
+45 silly lockFile 30af3cd7-preambule-node-modules-http-sync tar:///home/jb/projets/preambule/node_modules/http-sync
+46 verbose lock tar:///home/jb/projets/preambule/node_modules/http-sync /home/jb/.npm/30af3cd7-preambule-node-modules-http-sync.lock
+47 silly lockFile bfa1c71f--npm-http-sync-0-0-4-package-tgz tar:///home/jb/.npm/http-sync/0.0.4/package.tgz
+48 verbose lock tar:///home/jb/.npm/http-sync/0.0.4/package.tgz /home/jb/.npm/bfa1c71f--npm-http-sync-0-0-4-package-tgz.lock
+49 silly gunzTarPerm modes [ '755', '644' ]
+50 silly gunzTarPerm extractEntry package.json
+51 silly gunzTarPerm extractEntry .npmignore
+52 silly gunzTarPerm extractEntry README.md
+53 silly gunzTarPerm extractEntry http-sync.js
+54 silly gunzTarPerm extractEntry test.js
+55 silly gunzTarPerm extractEntry test_require.js
+56 silly gunzTarPerm extractEntry License
+57 silly gunzTarPerm extractEntry binding.gyp
+58 silly gunzTarPerm extractEntry curllib.cc
+59 silly gunzTarPerm extractEntry wscript
+60 silly lockFile 30af3cd7-preambule-node-modules-http-sync tar:///home/jb/projets/preambule/node_modules/http-sync
+61 silly lockFile 30af3cd7-preambule-node-modules-http-sync tar:///home/jb/projets/preambule/node_modules/http-sync
+62 silly lockFile bfa1c71f--npm-http-sync-0-0-4-package-tgz tar:///home/jb/.npm/http-sync/0.0.4/package.tgz
+63 silly lockFile bfa1c71f--npm-http-sync-0-0-4-package-tgz tar:///home/jb/.npm/http-sync/0.0.4/package.tgz
+64 info preinstall http-sync@0.0.4
+65 verbose readDependencies using package.json deps
+66 verbose readDependencies using package.json deps
+67 silly resolved []
+68 verbose about to build /home/jb/projets/preambule/node_modules/http-sync
+69 info build /home/jb/projets/preambule/node_modules/http-sync
+70 verbose linkStuff [ false, false, false, '/home/jb/projets/preambule/node_modules' ]
+71 info linkStuff http-sync@0.0.4
+72 verbose linkBins http-sync@0.0.4
+73 verbose linkMans http-sync@0.0.4
+74 verbose rebuildBundles http-sync@0.0.4
+75 info install http-sync@0.0.4
+76 verbose unsafe-perm in lifecycle false
+77 info http-sync@0.0.4 Failed to exec install script
+78 info /home/jb/projets/preambule/node_modules/http-sync unbuild
+79 info preuninstall http-sync@0.0.4
+80 info uninstall http-sync@0.0.4
+81 verbose true,/home/jb/projets/preambule/node_modules,/home/jb/projets/preambule/node_modules unbuild http-sync@0.0.4
+82 info postuninstall http-sync@0.0.4
+83 error http-sync@0.0.4 install: `node-gyp rebuild`
+83 error Exit status 1
+84 error Failed at the http-sync@0.0.4 install script.
+84 error This is most likely a problem with the http-sync package,
+84 error not with npm itself.
+84 error Tell the author that this fails on your system:
+84 error     node-gyp rebuild
+84 error You can get their info via:
+84 error     npm owner ls http-sync
+84 error There is likely additional logging output above.
+85 error System Linux 3.13.0-32-generic
+86 error command "/usr/bin/node" "/usr/bin/npm" "install" "http-sync"
+87 error cwd /home/jb/projets/preambule/app
+88 error node -v v0.10.29
+89 error npm -v 1.4.14
+90 error code ELIFECYCLE
+91 verbose exit [ 1, true ]

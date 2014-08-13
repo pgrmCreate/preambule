@@ -1,0 +1,26 @@
+<head>
+  <!--[if lt IE 9]>
+  <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+<body>
+<div ng-include="'partials/navbar'"></div>
+
+<div class="row">
+  <ul class="home_pictures">
+  <div class="col-lg-3 col-sm-3 col-xs-12"
+       ng-repeat="num in [1, 2, 3, 4, 5, 6, 7, 8]">
+    <li>
+    <img class="thumbnail img-responsive" ng-src='http://lorempixum.com/600/350/technics/{{ num }}'>
+
+    <p style="padding: 0.5em;">
+      Istum amici Quid amici Haec societates in ut graves Haec est in
+      amicitiae honorem honorem enim reperiuntur ubi Ad Ennius ut recte publica
+      iis difficillime qui plerisque qui Ad non.
+    </p>
+      <h4 style="text-align: right; color: cornflowerblue;">{{num * 3}} likes</h4>
+    </li>
+    </div>
+  </ul>
+</div>
+
+</body>

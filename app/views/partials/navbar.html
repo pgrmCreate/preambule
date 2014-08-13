@@ -1,0 +1,39 @@
+<div class="filter_modal" ng-show="display_modal"
+     ng-click="display_modal = false; display_login = false;"></div>
+
+<div class="navbar navbar-default navbar-static-top" style="z-index: 4;">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Accueil</a>
+  </div>
+
+  <div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="auteurs">Les auteurs</a></li>
+      <li><a href="preambules">Les préambules</a></li>
+      <li><a href="ecrire">Ecrire</a></li>
+      <li><a href="#">Boutique</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li style="cursor: pointer;"><a
+      ng-click="display_login = true; display_modal = true;">
+        se connecter</a></li>
+      <li style="margin-right: 0.5em;"><a href="#about">à propos</a></li>
+    </ul>
+  </div>
+</div>
+
+<div id="modal_login" ng-show="display_login"
+     class="display_modal">
+
+  <h1>Connexion</h1>
+  <div ng-include="'partials/login'"></div>
+</div>
+
+
+
+

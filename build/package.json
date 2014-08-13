@@ -1,0 +1,14 @@
+{
+    "name": "jbmontreal",
+    "version": "0.0.2",
+    "engines": {
+        "node": ">=0.10.0"
+    },
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "express": "4.x.x",
+        "mobile-detect": "0.1.0"
+    }
+}
