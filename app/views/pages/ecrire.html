@@ -1,0 +1,45 @@
+<div ng-include="'partials/navbar'"></div>
+
+<div class="row col-lg-offset-1">
+  <p style='font-family: "Bookman", Georgia, "Times New Roman", serif;
+  padding: 0.5em;'>
+    Voici les auteurs pour lesquels vous pouvez écrire vos préambules.
+    Vous verrez d’ailleurs qu’ils ont des préférences de style,
+    mais n'hésitez pas a les mettre au défi dans un autre genre. <br>
+    Sélectionnez votre auteur :
+  </p>
+  <ul class="listing_author">
+    <div class="col-lg-2 col-sm-4 col-xs-6 view"
+         ng-repeat="auteur in auteurs"
+         ng-click="author_select(auteur.nom_auteur);">
+      <h2 style="text-align: center;">{{auteur.nom_auteur}}</h2>
+      <li>
+        <img class="thumbnail img-responsive" ng-src='http://lorempixum.com/242/156/business/{{ auteur.index }}'>
+
+        <p style="padding: 0.5em;">
+          Istum amici Quid amici Haec societates in ut graves Haec est in
+          amicitiae honorem honorem enim reperiuntur ubi Ad Ennius ut recte publica
+          iis difficillime qui plerisque qui Ad non.
+        </p>
+      </li>
+    </div>
+  </ul>
+</div>
+
+    <div>
+      <h3 ng-hide="auteur_select">Aucun auteur sélectionné</h3>
+      <h3 ng-show="auteur_select">Auteur sélectionné :
+        <span style="color: cornflowerblue;">{{auteur_select}}</span></h3>
+    </div>
+
+
+<div ng-show="auteur_select" class="row col-lg-offset-1 col-md-offset-1">
+  <h2>Ecrivez!</h2>
+  <div class="col-lg-10 col-md-10 col-sm-12">
+    <textarea style="width: 100%; height: 600px;"
+              placeholder="Le préambule de l'histoire"></textarea>
+
+    <input type="submit" value="Publier"
+           class="btn btn-primary">
+  </div>
+</div>

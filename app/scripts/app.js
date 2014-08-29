@@ -27,15 +27,15 @@ angular.module('preambuleApp', [
         authenticate: true
       })
       .when('/preambules', {
-        templateUrl: 'views/preambules.html',
+        templateUrl: '/pages/preambules.html',
         controller: 'PreambulesCtrl'
       })
       .when('/auteurs', {
-        templateUrl: 'views/auteurs.html',
+        templateUrl: '/pages/auteurs.html',
         controller: 'AuteursCtrl'
       })
       .when('/ecrire', {
-        templateUrl: 'views/ecrire.html',
+        templateUrl: '/pages/ecrire.html',
         controller: 'EcrireCtrl'
       })
       .otherwise({

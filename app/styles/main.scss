@@ -2,7 +2,7 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/
 $filter_background : RGBA(255,255,255,0.7);
 $modal_background : RGBA(0,0,0,0.7);
 
-@import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+@import '../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 
 h1,h2,h3 {
   font-family: 'Open Sans', sans-serif;
@@ -20,7 +20,6 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
 }
-
 ul.home_pictures {
   list-style: none;
   width: 100%;
@@ -30,6 +29,36 @@ ul.home_pictures {
     border-radius: 0.8em;
     margin-bottom: 2em;
     padding: 0.5em;
+  }
+}
+
+ul.preambule_articles {
+  list-style: none;
+  width: 100%;
+
+  li {
+    border-radius: 0.8em;
+    margin-bottom: 0em;
+    padding: 0.5em;
+  }
+
+  li:nth-child(2) {
+    background: red;
+  }
+
+  h2 {
+    font-size: 1.2em;
+    color: #666;
+    margin-top: 0em;
+  }
+
+  h4 {
+    font-size: 1em;
+    color: #666;
+  }
+
+  p {
+    color: steelblue;
   }
 }
 
