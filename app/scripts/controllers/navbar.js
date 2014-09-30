@@ -64,7 +64,7 @@ angular.module('preambuleApp')
                     }).progress(function(evt) {
                         console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
                     }).success(function(data, status, headers, config) {
-                        $location.path('');
+                        $location.path();
                     });
                     //.error(...)
                     //.then(success, error, progress);
