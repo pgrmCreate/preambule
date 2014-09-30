@@ -2534,3 +2534,30 @@
 .zoomOutUp {
   -webkit-animation-name: zoomOutUp;
   animation-name: zoomOutUp; }
+
+/*///////////////////// FADE IN LEFT /////////////////////*/
+@keyframes fadeInFast {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+
+.fadeInFas {
+  animation-name: fadeIn;
+  animation-duration: 0.5s; }
+
+/*///////////////////// FADE IN LEFT /////////////////////*/
+/*///////////////////// FADE IN LEFT /////////////////////*/
+@keyframes fadeOutFast {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+
+.fadeOutFast {
+  animation-name: fadeOut;
+  animation-duration: 0.5s; }
+
+/*///////////////////// FADE IN LEFT /////////////////////*/

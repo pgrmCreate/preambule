@@ -1,41 +1,154 @@
-<div class="filter_modal" ng-show="display_modal"
-     ng-click="display_modal = false; display_login = false;"></div>
+<div ng-controller="NavbarCtrl">
 
-<div class="navbar navbar-default navbar-static-top" style="z-index: 4;">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#" style="padding: 0.2em;">
-      <img src="../../images/navbar/logo.png" style="height: 100%;">
-    </a>
+  <div class="filter_modal animated" ng-class="{fadeInFast : display_modal, fadeOutFast: !display_modal}"
+       ng-show="display_modal"
+       ng-click="display_modal = false; display_login = false; modal_write_preambule=false;"></div>
+
+
+
+  <div class="modal_ecrire" ng-show="modal_write_preambule">
+    <div class="filter_modal" ng-show="modal_write_forAuthor"
+         ng-click="modal_write_forAuthor=false;">
+    </div>
+  <span class="glyphicon glyphicon-remove"
+        ng-click="modal_write_preambule=false;"
+        style="position: absolute; top: 0.5em; right: 0.5em; color: white;
+        font-size: 2.6em; cursor: pointer;"></span>
+    <form class="form-horizontal"
+          enctype='multipart/form-data'
+          ng-upload
+          ng-submit="preambuleSave(newPreambule);">
+      <fieldset>
+        <!-- Form Name -->
+        <legend>Ajout d'un nouveau préambule</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <div class="col-md-4">
+            <input ng-model="newPreambule.titre"
+                   id="titre" name="titre" type="text"
+                   placeholder="Titre du préambule" class="form-control input-md">
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <div class="col-md-4">
+            <textarea placeholder="Courte description" ng-model="newPreambule.description"
+                      class="form-control" id="content" name="content"
+            style="height: 6em;" maxlength="140"></textarea>
+            <span class="help-block">facultatif</span>
+          </div>
+        </div>
+
+        <!-- Textarea -->
+        <div class="form-group">
+          <div class="col-md-9">
+            <textarea placeholder="Preambule de {{newPreambule.auteur}}" ng-model="newPreambule.content"
+                class="form-control" style="height: 400px; overflow-y: scroll;"
+                      id="content" name="content"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <p style="margin-bottom: 0.5em;">Selectionnez votre couverture</p>
+          <input style="margin-bottom: 1.5em;"
+                 type="file" ng-file-select="onFileSelect($files)">
+          <img class="col-md-3" id="blah" src="#" alt="" style="background: lightsteelblue;"/>
+        </div>
+
+
+        <div class="form-group">
+          <div class="col-md-6 col-sm-12">
+
+            <input class="col-md-8" ng-model="searchTag" type="text"
+                   placeholder="Tags" class="form-control input-md"
+                style="height: 2em;" id="tagLoad">
+            <span style="background: white; padding: 0; height: 2em;
+            border-radius: 0 0.5em 0.5em 0; border-left: none;
+            vertical-align: top; padding-left: 0.5em;"
+                  class="col-md-4 btn btn-default"
+                ng-click="legalPushTag(searchTag); searchTag='';">
+              Ajouter</span>
+             </div>
+
+          <div class="listing_tags">
+            <div class="btn btn-default"
+                 style="margin-left: 1em; margin-top: 1em"
+                 ng-repeat="tag in newPreambule.tags track by $index"
+                 ng-click="removeTag($index)">
+              <span class="glyphicon glyphicon-remove"></span>
+              {{tag}}
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary"
+                style="margin: 20px 0 100px 0;">Publier un article</button>
+      </fieldset>
+    </form>
+
   </div>
 
-  <div class="collapse navbar-collapse">
-    <ul class="nav navbar-nav">
-      <li><a href="auteurs">Les auteurs</a></li>
-      <li><a href="preambules">Les préambules</a></li>
-      <li><a href="ecrire">Ecrire</a></li>
-      <li><a href="#">Boutique</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li style="cursor: pointer;"><a
-      ng-click="display_login = true; display_modal = true;">
-        se connecter</a></li>
-      <li style="margin-right: 0.5em;"><a href="#about">à propos</a></li>
-    </ul>
+  <div class="navbar navbar-default navbar-static-top"
+       style="z-index: 4; box-shadow: 0px 3px 15px 0px rgba(50, 50, 50, 0.18);">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/">Préambules</a></li>
+        <li><a href="auteurs">Auteurs</a></li>
+        <!--<li><a href="preambules">Les préambules</a></li>-->
+        <!--<li><a href="ecrire">Ecrire</a></li>-->
+        <li><a href="bibliotheque">Bibliothèque</a></li>
+      </ul>
+
+      <a class="navbar-brand" href="#" style="padding: 0.2em; left: 45%; position: absolute;">
+        <img src="../../images/navbar/logo.png" style="height: 100%;">
+      </a>
+      <ul class="nav navbar-nav navbar-right" style="margin-right: 0;">
+
+        <li style="cursor: pointer;"
+            ng-hide="currentUser">
+          <a  ng-click="display_login = true; display_modal = true;">
+            se connecter</a>
+        </li>
+        <li style="cursor: pointer; height: 100%; padding: 0 1em 0 1em;"
+            ng-click="write_newPreambule()"
+            ng-show="currentUser">
+          <img style="width: 4em; height: 50px;"
+               src="../../images/general_small_elements/publish.png">
+        </li>
+        <li style="cursor: pointer;"><a
+            ng-click="display_login = true; display_modal = true;"
+            ng-show="currentUser">
+          {{currentUser.name}}</a>
+        </li>
+
+
+        <li style="margin-right: 0.5em;">
+          <a href="#about">à propos</a>
+        </li>
+      </ul>
+    </div>
   </div>
+
+  <div id="modal_login" ng-show="display_login"
+       class="display_modal">
+
+    <h1>Connexion</h1>
+    <div ng-include="'partials/login'"></div>
+  </div>
+
 </div>
 
-<div id="modal_login" ng-show="display_login"
-     class="display_modal">
-
-  <h1>Connexion</h1>
-  <div ng-include="'partials/login'"></div>
-</div>
-
-
-
+<script type="text/javascript">
+  alert("LOL");
+</script>
 

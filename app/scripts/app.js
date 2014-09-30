@@ -5,7 +5,8 @@ angular.module('preambuleApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-        'ngAnimate'
+        'ngAnimate',
+        'angularFileUpload'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
@@ -34,9 +35,9 @@ angular.module('preambuleApp', [
         templateUrl: '/pages/auteurs.html',
         controller: 'AuteursCtrl'
       })
-      .when('/ecrire', {
-        templateUrl: '/pages/ecrire.html',
-        controller: 'EcrireCtrl'
+      .when('/bibliotheque', {
+        templateUrl: '/pages/bibliotheque.html',
+        controller: 'BibliothequeCtrl'
       })
       .otherwise({
         redirectTo: '/'
@@ -68,4 +69,5 @@ angular.module('preambuleApp', [
         $location.path('/login');
       }
     });
+
   });

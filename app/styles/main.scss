@@ -1,6 +1,6 @@
 $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
-$filter_background : RGBA(255,255,255,0.7);
-$modal_background : RGBA(0,0,0,0.7);
+$filter_background : RGBA(255,255,255 ,0.6);
+$modal_background : #eee;
 
 @import '../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 
@@ -8,6 +8,7 @@ h1,h2,h3 {
   font-family: 'Open Sans', sans-serif;
 }
 .navbar-nav {
+
   li:hover {
     background: #eee;
     a:hover {
@@ -17,8 +18,9 @@ h1,h2,h3 {
 }
 /* Space out content a bit */
 body {
-    padding-top: 20px;
-    padding-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: #eee;
 }
 ul.home_pictures {
   list-style: none;
@@ -32,49 +34,144 @@ ul.home_pictures {
   }
 }
 
-ul.preambule_articles {
-  list-style: none;
+.add_voile {
+  cursor: pointer;
+  position: absolute;
+  height: 35vh;
   width: 100%;
+  margin: 0;
+  opacity: 0.01;
+  padding: 0.5em;
+  color: #222;
+  transition: all 0.6s;
+}
 
-  li {
+.add_voile:hover {
+  background: RGBA(255,255,255, 0.9);
+  animation: fadeOut;
+  opacity: 1;
+  width: 100%;
+}
+
+div.preambule_articles {
+  list-style: none;
+  height: auto;
+  position: relative;
+
+  img:hover {
+
+  }
+
+  view {
     border-radius: 0.8em;
     margin-bottom: 0em;
     padding: 0.5em;
   }
 
-  li:nth-child(2) {
-    background: red;
+  view:nth-child(1n + 5) {
+    margin-top: 1em;
   }
 
   h2 {
     font-size: 1.2em;
     color: #666;
     margin-top: 0em;
+    font-family: Open-Sans, sherif;
   }
 
   h4 {
     font-size: 1em;
     color: #666;
+    font-family: Open-Sans, sherif;
   }
+
 
   p {
     color: steelblue;
+    font-family: Open-Sans, sherif;
+    font-size: 1.2em;
   }
 }
 
-ul.listing_author {
+div.view_author {
   list-style: none;
   width: 100%;
 
-  li {
-    margin-bottom: 2em;
-    border: 3px dashed white;
-    cursor: pointer;
+  h2 {
+    font-family: Open-Sans, sherif;
   }
 
-  li:hover {
-    border: 3px dashed yellowgreen;
+  div {
+    h2.prop_author {
+      background: #84c4c6;
+      text-align: center;
+      font-family: Trocchi;
+      font-size: 1.4em;
+      border: 2px solid steelblue;
+      display: inline-block;
+      width: 100%;
+      margin: 0.5em 0 1em 0;
+      border-radius: 0.8em;
+    }
+
+    h2.prop_author:hover {
+      background: #a0d0e0;
+      color: #444;
+
+    }
   }
+
+  .bio {
+    display: inline-block;
+    width: 100%;
+    color: #0055aa;
+    font-size: 1.3em;
+    margin-bottom: 1em;
+    border-bottom: 0.2em solid #0066bb;
+  }
+
+  p {
+    font-family: Open-Sans, sherif;
+    font-size: 1.1em;
+  }
+
+}
+
+div.modal_ecrire {
+  position: fixed;
+  width: 100%;
+  height: 93vh;
+  top: 10vh;
+  background: $modal_background;
+  z-index: 11;
+  padding: 2em;
+  overflow-y: scroll;
+
+  h1 {
+    color: white;
+    font-size: 1.3em;
+    font-family: Open-Sans, sherif;
+  }
+}
+
+.modal_ecrire.ng-hide-remove {
+  opacity: 1;
+  display: block !important;
+  transition: all 0.4s;
+  animation-duration:0.4s;
+  animation-fill-mode:both;
+  animation-name: zoomIn;
+
+}
+
+.modal_ecrire.ng-hide-remove-active {
+  opacity: 1;
+}
+
+.modal_ecrire.ng-hide-add {
+  animation-duration:0.5s;
+  animation-fill-mode:both;
+  animation-name: zoomOut;
 }
 
 #modal_login {
@@ -85,8 +182,16 @@ ul.listing_author {
   left: 20%;
   background: $modal_background;
   padding: 2em;
-  color: #eee;
+  color: #555;
+  font-family: Open-Sans, sherif;
+}
 
+.form-group {
+  label {
+    font-size: 1.3em;
+    color: #444;
+    font-family: Open-Sans, sherif;
+  }
 }
 
 div.filter_modal {
@@ -95,13 +200,14 @@ div.filter_modal {
   width: 100%;
   position: fixed;
   z-index: 6;
+  top: 0;
 }
 
 .display_modal.ng-hide-remove {
   opacity: 0;
   display: block !important;
   transition: all 1s;
-  animation-duration:1s;
+  animation-duration:0.5s;
   animation-fill-mode:both;
   animation-name: lightSpeedIn;
 
@@ -112,7 +218,7 @@ div.filter_modal {
 }
 
 .display_modal.ng-hide-add {
-  animation-duration:1s;
+  animation-duration:0.5s;
   animation-fill-mode:both;
   animation-name: lightSpeedOut;
 }
@@ -126,5 +232,65 @@ p.more_infos {
 
 p.more_infos:hover {
   color: forestgreen;
+}
+
+.option_title select {
+  width: 268px;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  border: 0;
+  border-radius: 1em 0 0 1em;
+  height: 34px;
+  -webkit-appearance: none;
+  margin-left: 1em;
+}
+
+.option_title:focus select {
+  border-radius: 0em;
+}
+
+div.preambule_author_end {
+  padding: 1em 10vw 1em 10vw;
+
+  h1 {
+    color: orangered;
+    font-size: 1.4em;
+    font-family: Open-Sans, sherif;
+  }
+
+  .listing_container {
+    margin-top: 1em;
+    background: white;
+    padding: 0.5em;
+
+    div {
+      display: inline-block;
+      width: 20%;
+
+
+      h5 {
+        display: inline-block;
+        font-family: Open-Sans, sherif;
+        font-size: 1.3em;
+      }
+
+      h6 {
+        display: inline-block;
+      }
+
+      p {
+        font-family: Open-Sans, sherif;
+      }
+    }
+  }
+}
+
+div.listing_tags {
+  clear: both;
+}
+
+.disabledScroll {
+  overflow-y: hidden;
 }
 

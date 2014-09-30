@@ -1,3 +1,5 @@
+<!--mongodb://jb:pass@kahana.mongohq.com:10010/preambule"-->
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -18,15 +20,19 @@
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/animation.css">
+    <link rel="stylesheet" href="styles/bootstrap-select.css">
+    <link rel="stylesheet" href="styles/angucomplete.css.css">
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" />
+    <link href='http://fonts.googleapis.com/css?family=Trocchi' rel='stylesheet' type='text/css'>
     <!-- endbuild -->
   </head>
-  <body ng-app="preambuleApp" style="padding-top: 0;">
+  <body ng-app="preambuleApp" id="bodyMain" style="padding-top: 0;">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container-fluid"  ng-view=""></div>
+    <div class="container-fluid"  ng-view="" style="padding: 0;"></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -46,7 +52,6 @@
 
     <!-- build:js(app) scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -54,6 +59,8 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/ng-file-upload/angular-file-upload.js"></script>
+    <script src="bower_components/ng-file-upload-shim/angular-file-upload-shim.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -62,6 +69,10 @@
     <!--<script src="scripts/ui-bootstrap-custom-part2.min.js"></script>-->
     <script src="scripts/app.js"></script>
 
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="scripts/notifier.js"></script>
+    <script src="scripts/jqueryUI.js"></script>
+
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/navbar.js"></script>
         <script src="scripts/controllers/login.js"></script>
@@ -69,7 +80,7 @@
         <script src="scripts/controllers/settings.js"></script>
         <script src="scripts/controllers/preambules.js"></script>
         <script src="scripts/controllers/auteurs.js"></script>
-        <script src="scripts/controllers/ecrire.js"></script>
+        <script src="scripts/controllers/bibliotheque.js"></script>
         <script src="scripts/services/auth.js"></script>
         <script src="scripts/services/session.js"></script>
         <script src="scripts/services/user.js"></script>
