@@ -16,7 +16,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var config = require('./lib/config/config');
 var busboy = require('connect-busboy');
-//var db = mongoose.connect(config.mongo.uri, config.mongo.options);
+//var db = mongoose.connect("mongodb://jb:pass@kahana.mongohq.com:10010/preambule", config.mongo.options);
 var db = mongoose.connect("mongodb://localhost/preambule", config.mongo.options);
 
 // Bootstrap models

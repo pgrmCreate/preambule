@@ -22,6 +22,7 @@ angular.module('preambuleApp')
             "votes" : [],
             "tags" : [],
             "commentaires" : [],
+            "commentaires_size" : 0,
             "date" : 0
         };
 
@@ -44,6 +45,8 @@ angular.module('preambuleApp')
         }
 
         $scope.preambuleSave = function (newPreambule) {
+            console.log("BEGIN ADD PREAMBULE");
+            console.log(newPreambule);
             $http.post('/api/createPreambule', newPreambule).success(function(reply) {
                 var defineNameFile = "img_"+reply.id+".jpg";
                 for (var i = 0; i < $scope.imageData.length; i++) {

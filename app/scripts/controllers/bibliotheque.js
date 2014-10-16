@@ -8,7 +8,7 @@
  * Controller of the preambuleApp
  */
 angular.module('preambuleApp')
-    .controller('BibliothequeCtrl', function ($scope) {
+    .controller('BibliothequeCtrl', function ($scope, $http) {
         $scope.histoires = [];
 
         for(var i=0 ; i < 5 ; i++) {
@@ -22,4 +22,11 @@ angular.module('preambuleApp')
                     'tags' : ['horreur', 'enfant', 'drole', 'ciel']
                 });
         }
+
+        $http.get('/api/preambuleSuiteLoad').success(function(reply) {
+            console.log("LOADING SUITE..");
+            console.log(reply);
+            $scope.SuitesPreambules = reply;
+        });
+
     });

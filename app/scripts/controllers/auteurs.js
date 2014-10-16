@@ -10,8 +10,6 @@
  */
 angular.module('preambuleApp')
     .controller('AuteursCtrl', function ($scope, $http, $rootScope) {
-      
-
         $scope.auteurs = [
             {
                 "nom_auteur" : "Jk Rowling",
@@ -34,7 +32,9 @@ angular.module('preambuleApp')
                 "show_full_bio" : false
             }
         ];
-
-
-
-    });
+    })
+.filter('reverse', function() {
+    return function(items) {
+        return items.slice().reverse();
+    };
+});

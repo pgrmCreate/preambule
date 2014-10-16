@@ -1,87 +1,133 @@
 <div ng-include="'partials/navbar'"></div>
 
+<div class="modal-container" ng-class="{'dp-none' : !show_preambule}" >
+  <div class="modal" ng-class="{'dp-block' : show_preambule}" id="black">
 
-<div class="filter_modal" ng-show="show_preambule" style=""
-     ng-click="show_preambule=false;"></div>
+    <div class="animated modal_content"
+         ng-class="{zoomInFast : show_preambule, zoomOutFast: !show_preambule}">
+      <div>
+        <span class="glyphicon glyphicon-remove close_window" ng-click="show_preambule=false;"></span>
+        <p style="font-size: 2.2em; text-align: justify; font-weight: bold; font-family: Open-Sans, sherif;
+   text-align: center; margin-top: 0.5em;">
+          {{preambuleSelect.titre}}
+        </p>
 
-<div style="position: absolute; background: #eee; width: 70vw; margin-left: 15vw;
-  height: auto; z-index: 7; padding: 1em; top: 0; overflow: scroll;"
-     ng-show="show_preambule">
-  <h2>Titre</h2>
-  <p>{{preambuleSelect.titre}}</p>
-  <h2>Préambules</h2>
-  <p>
-    {{preambuleSelect.content}}
-  </p>
+        <img class="col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3"
+             src="../../images/users/img_{{preambuleSelect._id}}.jpg"
+             style="margin-top: 2vh; margin-bottom: 7vh; ">
 
-  <h2>Tag(s)</h2>
-  <p style="margin-top: 2em;">
-    <span ng-repeat="tag in preambuleSelect.tags track by $index"
-          style="padding: 0.5em; border-radius: 0.5em;
-    background: #ddf; border: 1px solid grey; margin: 0.5em;">{{tag}}</span>
-  </p>
-  <img class="col-sm-11 col-md-8 col-lg-5" src="../../images/users/img_{{preambuleSelect._id}}.jpg">
+        <div class="content_preambule">
+          <p>
+            {{preambuleSelect.content}}
+          </p>
+        </div>
+        <div style=" clear: both; margin-top: 1em; margin-right: 2em;">
+          <button class="btn btn-primary" style="margin-left: 45%;" ng-hide="EcrireSuite"
+                  ng-click="EcrireSuite=true;">Je veux ecrire la suite!</button>
 
-  <h2 style="clear: both; padding-top: 2em;">Commentaires</h2>
-  <div style="" class="col-sm-12 col-md-11 col-lg-7">
+          <button class="btn btn-primary" style="margin-left: 45%;" ng-show="EcrireSuite"
+                  ng-click="EcrireSuite=false;">Revenir evaluer</button>
+          </span>
+        </div>
 
-    <textarea maxlength="300" id="zoneComment"
-              style="border-radius: 0.5em; width: 100%; height: 100px; padding: 0.5em;"
-              placeholder="Laissez-lui un commentaire!"
-        ng-model="newComment"></textarea>
-    <button class="btn btn-primary" ng-click="addComment(preambuleSelect);">Commenter</button>
-  </div>
-  <div class="col-sm-12 col-md-12 col-lg-9"
+        <div style="width: 80%; margin-left: 10%; ">
+          <div style="margin-top: 5vh;">
+            <button class="btn btn-success" style="float: left; " ng-show="currentUser.name"
+                    ng-click="voteTry(preambuleSelect)">
+              <span style="text-align:right; font-size: 1.3em; clear: both;" class="glyphicon glyphicon-thumbs-up"></span>
+            <span style="text-align:right; margin-left: 1em; font-size: 1.3em;">
+            Fantastique!
+            </span>
+            </button>
+            <span style="color: #4682b4; font-family: Open-Sans, sherif; font-size: 1.1em;
+            margin-left: 2em;">
+          <span>{{preambuleSelect.votes.length}} votes</span>
+          <span>{{preambuleSelect.commentaires_size}} commentaires</span>
+              </span>
+          </div>
+          <form ng-show="EcrireSuite" ng-submit="preambuleSuiteSave(newPreambuleSuite, preambuleSelect);">
+            <h2 style="clear: both; padding-top: 2em;">Une suite</h2>
+            <textarea style="height: 30vh; width: 100%;" ng-model="newPreambuleSuite.contentSuite"></textarea>
+            <button class="btn btn-primary">Publier la suite</button>
+          </form>
 
-       ng-repeat="commentaire in preambuleSelect.commentaires">
-    <h4>{{commentaire.authorMail}}</h4>
-    <p>{{commentaire.content}}</p>
+          <div ng-hide="EcrireSuite">
+            <h2 style="clear: both; padding-top: 2em;">Commentaires</h2>
+            <div style="" class="col-sm-12 col-md-11 col-lg-7" ng-show="currentUser.name">
+
+              <textarea maxlength="300" id="zoneComment"
+                        style="border-radius: 0.5em; width: 100%; height: 100px; padding: 0.5em;"
+                        placeholder="Laissez-lui un commentaire!"
+                        ng-model="newComment"></textarea>
+              <button class="btn btn-primary" ng-click="addComment(preambuleSelect);">Commenter</button>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-9"
+                 ng-repeat="commentaire in preambuleSelect.commentaires">
+              <hr style="border: none; border-top: 1px solid #bbb; margin-top: 3vh;">
+              <h4><i>{{commentaire.authorMail}}</i></h4>
+              <p>{{commentaire.content}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<select class="selectpicker">
-  <option disabled>Trier par</option>
-  <option value="lastActivity" selected>Dernière activité</option>
-  <option value="mostRecent">Les plus récents</option>
-  <option value="mostRead">Les plus lus</option>
-  <option value="mostComment">Les plus commentés</option>
-  <option value="mostPopular">Les plus populaires</option>
-</select>
 
-<select class="selectpicker">
-  <option disabled>Date d’ajout</option>
-  <option value="lastActivity" selected>Aujourd’hui</option>
-  <option value="mostRecent">Cette semaine</option>
-  <option value="mostRead">Ce mois-ci</option>
-  <option value="mostComment">Les plus commentés</option>
-  <option value="mostPopular">Les plus populaires</option>
-</select>
+<div class="container-fluid" ng-class="{'body-locked' : show_preambule}">
+  <select class="selectpicker" ng-model="f_by" ng-change="filter_by(f_by)">
+    <option value="show" disabled>Trier par</option>
+    <option value="lastActivity" selected>Dernières activités</option>
+    <option value="mostRecent">Les plus récents</option>
+    <option value="mostRead">Les plus lus</option>
+    <option value="mostComment">Les plus commentés</option>
+    <option value="mostPopular">Les plus populaires</option>
+  </select>
 
-<input type="text" placeholder="Tags">
+  <select class="selectpicker">
+    <option disabled>Date d’ajout</option>
+    <option value="lastActivity" selected>Aujourd’hui</option>
+    <option value="mostRecent">Cette semaine</option>
+    <option value="mostRead">Ce mois-ci</option>
+  </select>
 
-    <hr style=" clear: both;">
-<div ng-repeat="preambule in preambules" style="padding: 0;"
-     class="col-lg-3 col-md-4 col-sm-4 col-xs-12 preambule_articles"
-     ng-class="{ovh : show_preambule}">
-  <div style="background: URL('../../images/users/img_{{preambule._id}}.jpg');
-  height: 35vh; background-size: cover;">
-    <div class="animated add_voile"
-         ng-click="display_preambule(preambule);">
-      <h5>
-        {{preambule.description}}
-      </h5>
-      <div class="btn btn-default" style="
+  <div style="display: inline-block; background: #4682b4; border-radius: 0 0.5em 0.5em 0; color: white;">
+  <input type="text" placeholder="Tags" ng-model="filter_tagsPicked">
+  <span style="padding: 0.5em;">Ajouter</span>
+</div>
+  <div style="padding: 0 3vw 0 3vw; position: relative;">
+    <div ng-repeat="preambule in preambules"
+         class="col-lg-3 col-md-4 col-xs-12 preambule_articles"
+         ng-class="{ovh : show_preambule}">
+
+      <div style="background: URL('../../images/users/img_{{preambule._id}}.jpg');
+  height: 25vh; background-size: cover; position: relative; border-radius: 0.5em 0.5em 0 0;">
+        <div class="animated add_voile"
+             ng-click="display_preambule(preambule);">
+          <h5>
+            {{preambule.description}}
+          </h5>
+          <div class="btn btn-default" style="
     background: #eee; clear: both; margin-left: 1em;
      margin-top: 1em; color: #555;"
-           ng-repeat="tag in preambule.tags track by $index">
-        {{tag}}
+               ng-repeat="tag in preambule.tags track by $index">
+            {{tag}}
+          </div>
+        </div>
+      </div>
+
+      <div style="background: white; padding: 0; border-radius: 0 0 1em 1em;">
+        <h2 ng-click="display_preambule(preambule);">{{preambule.titre}}</h2>
+        <div class="info_detail_preambule">
+          <h4>par : <i>{{preambule.auteur}}</i> le <i>{{preambule.date}}</i></h4>
+          <p>
+            {{preambule.votes.length}} votes
+            <span style="margin-left: 1em;"> {{preambule.commentaires_size}} commentaires</span>
+          </p>
+        </div>
       </div>
     </div>
   </div>
-  <h2 style="font-weight: bold;">{{preambule.titre}}</h2>
-  <h4>par : <i>{{preambule.auteur}}</i> le <i>{{preambule.date}}</i></h4>
-  <p>
-    {{preambule.votes.length}} votes
-    <span style="margin-left: 1em;"> {{preambule.commentaires.length}} commentaires</span>
-  </p>
 </div>

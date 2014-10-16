@@ -26,7 +26,8 @@
     <link href='http://fonts.googleapis.com/css?family=Trocchi' rel='stylesheet' type='text/css'>
     <!-- endbuild -->
   </head>
-  <body ng-app="preambuleApp" id="bodyMain" style="padding-top: 0;">
+  <body ng-app="preambuleApp" id="bodyMain" style="padding-top: 0; overflow: hidden;"
+        ng-class="{'body-locked' : bodyLock}">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -89,3 +90,35 @@
         <!-- endbuild -->
 </body>
 </html>
+
+<div class="facebook">
+  <h1>LIKE</h1>
+  <div
+      class="fb-like"
+      data-share="true"
+      data-width="450"
+      data-show-faces="true">
+  </div>
+</div>
+
+<script type="text/javascript">
+  alert("#1 Load");
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '748443688582066',
+      xfbml      : true,
+      version    : 'v2.1'
+    });
+  };
+
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  alert("#2 Finish loading Facebook");
+</script>
+
+

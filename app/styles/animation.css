@@ -2543,7 +2543,7 @@
   100% {
     opacity: 1; } }
 
-.fadeInFas {
+.fadeInFast {
   animation-name: fadeIn;
   animation-duration: 0.5s; }
 
@@ -2561,3 +2561,37 @@
   animation-duration: 0.5s; }
 
 /*///////////////////// FADE IN LEFT /////////////////////*/
+/*////////////////////////// ZOOM IN FAST ///////////////////////*/
+@keyframes zoomInFast {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3); }
+
+  50% {
+    opacity: 1; } }
+
+.zoomInFast {
+  animation-name: zoomInFast;
+  animation-duration: 0.5s; }
+
+/*////////////////////////// ZOOM IN FAST ///////////////////////*/
+/*////////////////////////// ZOOM OUT FAST ///////////////////////*/
+@keyframes zoomOutFast {
+  0% {
+    opacity: 1;
+    display: block; }
+
+  50% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3); }
+
+  100% {
+    opacity: 0;
+    display: none; } }
+
+.zoomOutFast {
+  animation-name: zoomOutFast;
+  animation-duration: 0.5s;
+  display: none; }
+
+/*////////////////////////// ZOOM OUT FAST ///////////////////////*/

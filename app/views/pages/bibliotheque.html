@@ -1,38 +1,6 @@
 <div ng-include="'partials/navbar'"></div>
 
 <div class="preambule_author_end">
-  <h1>Préambules terminés par nos auteurs :</h1>
-
-  <select class="selectpicker">
-    <option>Date</option>
-  </select>
-
-  <select class="selectpicker">
-    <option>Genre</option>
-  </select>
-
-  <select class="selectpicker">
-    <option>Tag</option>
-  </select>
-
-  <div class="listing_container">
-    <div ng-repeat="preambule in histoires">
-      <img class="thumbnail img-responsive"
-           ng-src='http://lorempixum.com/400/250/people/{{$index}}'/>
-      <h5>{{preambule.title}} - </h5> <h6>{{preambule.date}}</h6>
-      <p><b>Preambule par :</b> {{preambule.author_preambule}}</p>
-      <p><b>Suite par :</b> {{preambule.author_suite}}</p>
-      <p><b>Tags:</b>
-            <span ng-repeat="tag in preambule.tags"
-                  style="color: #4682b4;">
-            {{tag}}
-            </span>
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="preambule_author_end">
   <h1>Préambules terminés par nos aventuriers :</h1>
 
   <select class="selectpicker">
@@ -48,11 +16,11 @@
   </select>
 
   <div class="listing_container">
-    <div ng-repeat="preambule in histoires">
+    <div ng-repeat="preambule in SuitesPreambules">
       <img class="thumbnail img-responsive"
            ng-src='http://lorempixum.com/400/250/people/{{$index}}'/>
-      <h5>{{preambule.title}} - </h5> <h6>{{preambule.date}}</h6>
-      <p><b>Preambule par :</b> {{preambule.author_preambule}}</p>
+      <h5>{{preambule.titre}} - </h5> <h6>{{preambule.date}}</h6>
+      <p><b>Preambule par :</b> {{preambule.auteur}}</p>
       <p><b>Suite par :</b> {{preambule.author_suite}}</p>
       <p><b>Tags:</b>
             <span ng-repeat="tag in preambule.tags"
@@ -63,36 +31,3 @@
     </div>
   </div>
 </div>
-
-<div class="preambule_author_end">
-  <h1>En cour d'écriture :</h1>
-
-  <select class="selectpicker">
-    <option>Date</option>
-  </select>
-
-  <select class="selectpicker">
-    <option>Genre</option>
-  </select>
-
-  <select class="selectpicker">
-    <option>Tag</option>
-  </select>
-
-  <div class="listing_container">
-    <div ng-repeat="preambule in histoires">
-      <img class="thumbnail img-responsive"
-           ng-src='http://lorempixum.com/400/250/people/{{$index}}'/>
-      <h5>{{preambule.title}} - </h5> <h6>{{preambule.date}}</h6>
-      <p><b>Preambule par :</b> {{preambule.author_preambule}}</p>
-      <p><b>Suite par :</b> {{preambule.author_suite}}</p>
-      <p><b>Tags:</b>
-            <span ng-repeat="tag in preambule.tags"
-                  style="color: #4682b4;">
-            {{tag}}
-            </span>
-      </p>
-    </div>
-  </div>
-</div>
-
