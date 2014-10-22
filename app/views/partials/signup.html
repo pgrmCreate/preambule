@@ -4,7 +4,7 @@
   <div class="col-sm-12">
     <h1>Sign up</h1>
   </div>
-  <div class="col-sm-12">
+  <div class="col-sm-12 col-md-6">
     <form class="form" name="form" ng-submit="register(form)" novalidate>
 
       <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
@@ -16,7 +16,7 @@
         <p class="help-block" ng-show="form.name.$error.required && submitted">
           A name is required
         </p>
-      </div>   
+      </div>
 
       <div class="form-group" ng-class="{ 'has-success': form.email.$valid && submitted,
                                           'has-error': form.email.$invalid && submitted }">
@@ -39,7 +39,7 @@
       <div class="form-group" ng-class="{ 'has-success': form.password.$valid && submitted,
                                           'has-error': form.password.$invalid && submitted }">
         <label>Password</label>
-        
+
         <input type="password" name="password" class="form-control" ng-model="user.password"
                ng-minlength="3"
                required
@@ -56,11 +56,114 @@
       <button class="btn btn-lg btn-primary" type="submit">Sign up</button>
     </form>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-sm-12">
-    <hr>
-    Have an account? <a href="/login" class="text-center new-account">Log in.</a>
+  <div class="col-md-5 col-md-offset-1">
+    <body>
+    <script>
+      // This is called with the results from from FB.getLoginStatus().
+      function statusChangeCallback(response) {
+        console.log('statusChangeCallback');
+        console.log(response);
+        // The response object is returned with a status field that lets the
+        // app know the current login status of the person.
+        // Full docs on the response object can be found in the documentation
+        // for FB.getLoginStatus().
+        if (response.status === 'connected') {
+          // Logged into your app and Facebook.
+          testAPI();
+        } else if (response.status === 'not_authorized') {
+          // The person is logged into Facebook, but not your app.
+          document.getElementById('status').innerHTML = 'Please log ' +
+              'into this app.';
+        } else {
+          // The person is not logged into Facebook, so we're not sure if
+          // they are logged into this app or not.
+          document.getElementById('status').innerHTML = 'Please log ' +
+              'into Facebook.';
+        }
+      }
+
+      // This function is called when someone finishes with the Login
+      // Button.  See the onlogin handler attached to it in the sample
+      // code below.
+      function checkLoginState() {
+        FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
+        });
+      }
+
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '{your-app-id}',
+          cookie     : true,  // enable cookies to allow the server to access
+          // the session
+          xfbml      : true,  // parse social plugins on this page
+          version    : 'v2.1' // use version 2.1
+        });
+
+        // Now that we've initialized the JavaScript SDK, we call
+        // FB.getLoginStatus().  This function gets the state of the
+        // person visiting this page and can return one of three states to
+        // the callback you provide.  They can be:
+        //
+        // 1. Logged into your app ('connected')
+        // 2. Logged into Facebook, but not your app ('not_authorized')
+        // 3. Not logged into Facebook and can't tell if they are logged into
+        //    your app or not.
+        //
+        // These three cases are handled in the callback function.
+
+        FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
+        });
+
+      };
+
+      // Load the SDK asynchronously
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+      // Here we run a very simple test of the Graph API after login is
+      // successful.  See statusChangeCallback() for when this call is made.
+      function testAPI() {
+        console.log('Welcome!  Fetching your information.... ');
+        FB.api('/me', function(response) {
+          console.log('Successful login for: ' + response.name);
+          document.getElementById('status').innerHTML =
+              'Thanks for logging in, ' + response.name + '!';
+        });
+      }
+    </script>
+
+    <!--
+      Below we include the Login Button social plugin. This button uses
+      the JavaScript SDK to present a graphical Login button that triggers
+      the FB.login() function when clicked.
+    -->
+
+    <div class="fb-login-button" data-max-rows="1"
+         data-size="xlarge" data-show-faces="false" data-auto-logout-link="true">FACEBOOK</div>
+
+    <div id="status">
+    </div>
+
+    <div id="signin-button" class="show" style="margin-top: 4vh;">
+      <div id="___signin_0" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 135px; height: 36px; position: relative; background: transparent;"><button style="opacity: 0; z-index: 10000; left: 0px; top: 0px; position: absolute; cursor: pointer; outline: rgb(0, 0, 0); width: 135px; height: 36px;">Se connecter avec Google</button><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 135px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 36px;" tabindex="0" vspace="0" width="100%" id="I0_1413507795904" name="I0_1413507795904" src="https://apis.google.com/u/0/_/widget/render/signin?usegapi=1&amp;approvalprompt=force&amp;clientid=841077041629.apps.googleusercontent.com&amp;requestvisibleactions=http%3A%2F%2Fschemas.google.com%2FCommentActivity%20http%3A%2F%2Fschemas.google.com%2FReviewActivity&amp;cookiepolicy=single_host_origin&amp;origin=https%3A%2F%2Fgoogle-developers.appspot.com&amp;url=https%3A%2F%2Fgoogle-developers.appspot.com%2F%2B%2Fdemos%2Fsignin_demo_49872349874373%3Fhl%3Dfr&amp;gsrc=3p&amp;ic=1&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.fr.qsueABT9j-A.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Ft%3Dzcms%2Frs%3DAGLTcCMUbZs-lrYqnWlH_FFz04ThlPjKhg#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh%2Conauth%2Conload&amp;id=I0_1413507795904&amp;parent=https%3A%2F%2Fgoogle-developers.appspot.com&amp;pfname=&amp;rpctoken=16011534" data-gapiattached="true" title="Se connecter avec Google"></iframe></div>
+    </div>
+    </body>
   </div>
 </div>
+
+
+<div class="col-sm-12">
+  <hr>
+  Deja un compte ? <a style="font-family: Open-Sans, sherif; "
+                      href="/login" class="text-center new-account">Connection</a>
+</div>
+
+

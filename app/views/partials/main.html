@@ -93,10 +93,18 @@
     <option value="mostRead">Ce mois-ci</option>
   </select>
 
-  <div style="display: inline-block; background: #4682b4; border-radius: 0 0.5em 0.5em 0; color: white;">
-  <input type="text" placeholder="Tags" ng-model="filter_tagsPicked">
-  <span style="padding: 0.5em;">Ajouter</span>
-</div>
+  <div class="button_addTag">
+  <input type="text" placeholder="Tags" ng-model="filter_tagsPicked_input"
+         style="color: black; height: 2.4em; padding: 0.25em;"><span
+        ng-click="filter_tags_add();">Ajouter</span>
+  </div>
+
+  <span style="margin-left: 0.5em;" class="btn btn-default" ng-repeat="tags in filter_tagsPicked track by $index"
+        ng-click="removeTag($index);">
+    {{tags}} <span class="glyphicon glyphicon-remove"></span>
+  </span>
+
+
   <div style="padding: 0 3vw 0 3vw; position: relative;">
     <div ng-repeat="preambule in preambules"
          class="col-lg-3 col-md-4 col-xs-12 preambule_articles"
@@ -109,8 +117,7 @@
           <h5>
             {{preambule.description}}
           </h5>
-          <div class="btn btn-default" style="
-    background: #eee; clear: both; margin-left: 1em;
+          <div class="btn btn-default" style="background: #eee; clear: both; margin-left: 1em;
      margin-top: 1em; color: #555;"
                ng-repeat="tag in preambule.tags track by $index">
             {{tag}}
@@ -131,3 +138,4 @@
     </div>
   </div>
 </div>
+

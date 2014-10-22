@@ -29,7 +29,10 @@ angular.module('preambuleApp')
         $scope.logout = function() {
             Auth.logout()
                 .then(function() {
-                    $location.path('/login');
+                    $location.path('/');
+                    $scope.display_login=false;
+                    $scope.display_userMenu=false;
+                    $scope.display_modal=false;
                 });
         };
 
@@ -38,7 +41,6 @@ angular.module('preambuleApp')
         };
 
         $scope.write_newPreambule = function () {
-
             $scope.modal_write_preambule = true;
             $scope.display_modal = true;
             $scope.newPreambule.auteur = $rootScope.currentUser.name;
@@ -85,7 +87,6 @@ angular.module('preambuleApp')
                 reader.onload = function (e) {
                     $('#blah').attr('src', e.target.result);
                 }
-
                 reader.readAsDataURL(files[0]);
             }
         }
@@ -107,8 +108,6 @@ angular.module('preambuleApp')
             else
                 Notifier.warning('Vous avez rentré 2 tags identiques.', 'Doublon de tag');
         }
-
-
 
             $scope.loadingTag = ["meurtre", "humour", "rommance",
                 "mystere", "voyage" , "philosphie", "science-fiction"];

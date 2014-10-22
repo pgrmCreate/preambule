@@ -80,6 +80,7 @@
         <script src="scripts/controllers/signup.js"></script>
         <script src="scripts/controllers/settings.js"></script>
         <script src="scripts/controllers/preambules.js"></script>
+        <script src="scripts/controllers/partials/modules/connect_facebook.js"></script>
         <script src="scripts/controllers/auteurs.js"></script>
         <script src="scripts/controllers/bibliotheque.js"></script>
         <script src="scripts/services/auth.js"></script>
@@ -91,18 +92,8 @@
 </body>
 </html>
 
-<div class="facebook">
-  <h1>LIKE</h1>
-  <div
-      class="fb-like"
-      data-share="true"
-      data-width="450"
-      data-show-faces="true">
-  </div>
-</div>
 
 <script type="text/javascript">
-  alert("#1 Load");
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '748443688582066',
@@ -118,7 +109,6 @@
     js.src = "//connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
-  alert("#2 Finish loading Facebook");
 </script>
 
 

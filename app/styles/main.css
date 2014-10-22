@@ -5483,3 +5483,102 @@ div.listing_tags {
     top: 0;
     overflow: scroll;
     cursor: auto; }
+
+.userMenu {
+  position: absolute;
+  z-index: 9;
+  right: 2vw;
+  height: 20vh;
+  width: 30vw;
+  background: RGBA(235, 245, 255, 0.9);
+  border: 0px solid #eee;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75); }
+
+.btn-logout {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+  width: 100%;
+  color: #eee;
+  border-radius: 0;
+  height: 34%;
+  text-align: left;
+  text-shadow: 5px 5px 5px #862f21;
+  font-size: 1.4em; }
+  .btn-logout span {
+    float: right;
+    font-size: 4vh;
+    color: #aaa;
+    opacity: 0.4; }
+
+.btn-logout:hover {
+  background-color: #e97352;
+  color: #eee; }
+  .btn-logout:hover span {
+    text-shadow: 5px 5px 5px rgba(255, 255, 255, 0.3);
+    opacity: 0.7;
+    color: black; }
+
+.btn-publish {
+  background-color: rgba(20, 20, 20, 0.6);
+  width: 100%;
+  color: #eee;
+  border-radius: 0;
+  height: 33%;
+  text-align: left;
+  font-size: 1.4em; }
+  .btn-publish span {
+    float: right;
+    font-size: 4vh;
+    color: #aaa;
+    opacity: 0.4; }
+
+.btn-publish:hover {
+  background-color: #4a4;
+  color: #eee; }
+  .btn-publish:hover span {
+    text-shadow: 5px 5px 5px rgba(255, 255, 255, 0.3);
+    opacity: 0.7;
+    color: black; }
+
+.btn-setting {
+  background-color: rgba(20, 20, 20, 0.6);
+  width: 100%;
+  color: #eee;
+  border-radius: 0;
+  height: 33%;
+  text-align: left;
+  font-size: 1.4em; }
+  .btn-setting span {
+    float: right;
+    font-size: 4vh;
+    color: #aaa;
+    opacity: 0.4; }
+
+.btn-setting:hover {
+  background-color: #5185f1;
+  color: #eee; }
+  .btn-setting:hover span {
+    text-shadow: 5px 5px 5px rgba(255, 255, 255, 0.3);
+    opacity: 0.7;
+    color: black; }
+
+.button_addTag {
+  display: inline-block;
+  border-radius: 0 0em 0em 0;
+  color: white; }
+  .button_addTag span {
+    padding: 0.5em;
+    background: #6495ed;
+    height: 2.4em;
+    color: white;
+    display: inline-block;
+    margin: 0em;
+    vertical-align: top;
+    cursor: pointer;
+    border-radius: 0 0.5em 0.5em 0; }
+  .button_addTag span:hover {
+    background: #84c5fd; }
+  .button_addTag input:focus {
+    outline: none;
+    border: 2px dotted #999;
+    border-right-color: transparent; }

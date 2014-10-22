@@ -26,6 +26,10 @@ angular.module('preambuleApp', [
                 templateUrl: 'partials/signup',
                 controller: 'SignupCtrl'
             })
+            .when('/connectFacebook', {
+                templateUrl: 'partials/modules/connect_facebook',
+                controller: 'SignupCtrl'
+            })
             .when('/settings', {
                 templateUrl: 'partials/settings',
                 controller: 'SettingsCtrl',
@@ -42,6 +46,10 @@ angular.module('preambuleApp', [
             .when('/bibliotheque', {
                 templateUrl: '/pages/bibliotheque.html',
                 controller: 'BibliothequeCtrl'
+            })
+            .when('/partials/modules/connect_facebook', {
+              templateUrl: 'views/partials/modules/connect_facebook.html',
+              controller: 'PartialsModulesConnectFacebookCtrl'
             })
             .otherwise({
                 redirectTo: '/'

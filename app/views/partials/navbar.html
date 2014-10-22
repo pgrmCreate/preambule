@@ -109,7 +109,7 @@
 
     </div>
 
-    <div class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse" style="border-bottom: 2px double #eee;">
       <ul class="nav navbar-nav">
         <li><a href="/" target="_self">Préambules</a></li>
         <li><a href="auteurs" target="_self">Auteurs</a></li>
@@ -125,7 +125,7 @@
 
         <li style="cursor: pointer;"
             ng-hide="currentUser">
-          <a  ng-click="display_login = true; display_modal = true;">
+          <a  ng-click="display_login = true; display_userMenu = false;  display_modal = true;">
             se connecter</a>
         </li>
         <li style="cursor: pointer; padding: 0; border: 1px solid #ddd;
@@ -144,9 +144,10 @@
           </div>
         </li>
         <li style="cursor: pointer;"><a
-            ng-click="display_login = true; display_modal = true;"
+            ng-click="display_login = false; display_userMenu = true; display_modal = true;"
             ng-show="currentUser">
-          {{currentUser.name}}</a>
+          {{currentUser.name}}<span style="margin-left: 0.5em;" class="glyphicon glyphicon-arrow-down"></span></a>
+
         </li>
 
 
@@ -158,13 +159,36 @@
   </div>
 
   <div style="background: RGBA(0,0,0,0.2); position: absolute; width: 100vw; height: 100vh; top: 0;
-  z-index: 8; " ng-show="display_login" ng-click="display_login=false;"></div>
-  <div id="modal_login" ng-show="display_login"
-       class="display_modal">
+  z-index: 8; " ng-show="display_modal"
+       ng-click="display_login=false; display_userMenu=false; display_modal=false;"></div>
 
+  <div class="animated userMenu"
+      ng-class="{'fadeInDown' : display_userMenu, 'fadeOut' : !display_userMenu}"
+      ng-show="display_userMenu">
+    <button class="btn btn-logout" ng-click="logout();">
+      Deconnexion
+      <span class="glyphicon glyphicon-off"></span>
+    </button>
+
+    <button class="btn btn-publish">
+      Publier un preambule
+      <span class="glyphicon glyphicon-pencil"></span>
+    </button>
+
+    <button class="btn btn-setting">
+      Options de profile
+      <span class="glyphicon glyphicon-wrench"></span>
+    </button>
+  </div> 
+
+  <div id="modal_login" ng-show="display_login" class="display_modal">
     <h1>Connexion</h1>
     <div ng-include="'partials/login'"></div>
   </div>
-
 </div>
+
+
+
+
+
 
