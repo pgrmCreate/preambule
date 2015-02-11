@@ -8,6 +8,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="twitter:widgets:csp" content="on"> <!--TWITER-->
     <base href="/">
     <title>P R E A M B U L E</title>
     <meta name="description" content="">
@@ -21,13 +22,17 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/animation.css">
     <link rel="stylesheet" href="styles/bootstrap-select.css">
-    <link rel="stylesheet" href="styles/angucomplete.css.css">
+    <link rel="stylesheet" href="styles/angucomplete.css">
+    <link rel="stylesheet" href="styles/angular-carousel.css">
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" />
     <link href='http://fonts.googleapis.com/css?family=Trocchi' rel='stylesheet' type='text/css'>
     <!-- endbuild -->
   </head>
-  <body ng-app="preambuleApp" id="bodyMain" style="padding-top: 0; overflow: hidden;"
-        ng-class="{'body-locked' : bodyLock}">
+
+<div ng-include="'partials/navbar'" style="position: fixed; z-index: 8;"></div>
+
+  <body ng-app="preambuleApp" id="bodyMain" style="padding-top: 0; overflow-x: hidden;"
+        ng-class="{'body-locked' : bodyLock, 'body-unlocked' : !bodyLock}">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -62,9 +67,11 @@
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/ng-file-upload/angular-file-upload.js"></script>
     <script src="bower_components/ng-file-upload-shim/angular-file-upload-shim.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-moment/angular-moment.js"></script>
+    <script src="bower_components/angular-socialshare/angular-socialshare.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <!--<script src="scripts/ui-bootstrap-custom-part1.min.js"></script>-->
     <!--<script src="scripts/ui-bootstrap-custom-part2.min.js"></script>-->
@@ -73,6 +80,8 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="scripts/notifier.js"></script>
     <script src="scripts/jqueryUI.js"></script>
+    <script src="scripts/S3upload.js"></script>
+    <script src="scripts/angular-carousel.min.js"></script>
 
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/navbar.js"></script>
@@ -80,35 +89,154 @@
         <script src="scripts/controllers/signup.js"></script>
         <script src="scripts/controllers/settings.js"></script>
         <script src="scripts/controllers/preambules.js"></script>
+        <script src="scripts/controllers/editPreambule.js"></script>
+        <script src="scripts/controllers/profile.js"></script>
+        <script src="scripts/controllers/seeprofil.js"></script>
+        <script src="scripts/controllers/seebook.js"></script>
         <script src="scripts/controllers/partials/modules/connect_facebook.js"></script>
         <script src="scripts/controllers/auteurs.js"></script>
+        <script src="scripts/controllers/seepreambule.js"></script>
         <script src="scripts/controllers/bibliotheque.js"></script>
+        <script src="scripts/controllers/preambules_finished.js"></script>
         <script src="scripts/services/auth.js"></script>
         <script src="scripts/services/session.js"></script>
         <script src="scripts/services/user.js"></script>
+        <script src="scripts/services/facebook.js"></script>
         <script src="scripts/directives/mongooseError.js"></script>
 
         <!-- endbuild -->
 </body>
 </html>
 
-
 <script type="text/javascript">
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '748443688582066',
-      xfbml      : true,
-      version    : 'v2.1'
-    });
-  };
+  function s3_upload(){
 
-  (function(d, s, id){
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {return;}
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+  }
 </script>
 
 
+    <!--SOCIAL NETWORK SHARE THIS SYSTEM-->
+    <!--EXAMPLE BUTON :-->
+<!--
+<span class='st_facebook_large' displayText='Facebook'></span>
+<span class='st_fblike_large' displayText='Facebook Like'></span>
+<span class='st_twitter_large' displayText='Tweet'></span>
+<span class='st_twitterfollow_large' displayText='Twitter Follow'></span>
+-->
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "14886534-c7d9-40d5-800c-3f2aa2e3a41f",
+  doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+
+
+    <script>
+        general_connected = false;
+//      This is called with the results from from FB.getLoginStatus().
+      function statusChangeCallback(response) {
+        console.log('statusChangeCallback');
+        console.log(response);
+        // The response object is returned with a status field that lets the
+        // app know the current login status of the person.
+        // Full docs on the response object can be found in the documentation
+        // for FB.getLoginStatus().
+        if (response.status === 'connected') {
+          general_connected = true;
+          testAPI();
+        } else if (response.status === 'not_authorized') {
+          // The person is logged into Facebook, but not your app.
+          document.getElementById('status').innerHTML = 'Please log ' +
+              'into this app.';
+        } else {
+          // The person is not logged into Facebook, so we're not sure if
+          // they are logged into this app or not.
+          document.getElementById('status').innerHTML = 'Please log ' +
+              'into Facebook.';
+        }
+      }
+
+      // This function is called when someone finishes with the Login
+      // Button.  See the onlogin handler attached to it in the sample
+      // code below.
+      function checkLoginState() {
+        FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
+        });
+      }
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '748443688582066',
+          cookie     : true,  // enable cookies to allow the server to access
+          // the session
+          xfbml      : true,  // parse social plugins on this page
+          version    : 'v2.1' // use version 2.1
+        });
+
+        // Now that we've initialized the JavaScript SDK, we call
+        // FB.getLoginStatus().  This function gets the state of the
+        // person visiting this page and can return one of three states to
+        // the callback you provide.  They can be:
+        //
+        // 1. Logged into your app ('connected')
+        // 2. Logged into Facebook, but not your app ('not_authorized')
+        // 3. Not logged into Facebook and can't tell if they are logged into
+        //    your app or not.
+        //
+        // These three cases are handled in the callback function.
+
+        FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
+        });
+
+        FB.api('/me', function(response) {
+          console.log("TEST");
+          console.log(JSON.stringify(response));
+        });
+
+      };
+
+      // Load the SDK asynchronously
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+      // Here we run a very simple test of the Graph API after login is
+      // successful.  See statusChangeCallback() for when this call is made.
+      function testAPI() {
+        console.log('Welcome!  Fetching your information.... ');
+        FB.api('/me', function(response) {
+          console.log('Successful login for: ' + response.name);
+          console.log('Stats :');
+          console.log(response);
+          document.getElementById('status').innerHTML =
+              'Thanks for logging in, ' + response.name + '!';
+        });
+        angular.element(document.getElementById('bodyMain')).scope().service_facebook.connected();
+      }
+    </script>
+
+    <h1 style="position: absolute; top: 20vh; background: #ffffff; cursor: pointer;
+    display: none;"
+        onclick="connectToFacebook()">EMULATION : CONNECTED TO FACEBOOK</h1>
+    <script>
+      function connectToFacebook () {
+     var send_object_facebook = {
+      id: "10152790338209707",
+      email: "lofofora_beuz@hotmail.fr",
+      first_name: "Jbapt",
+      gender: "male",
+      id: "10152790338209707",
+      last_name: "Iste",
+      link: "https://www.facebook.com/app_scoped_user_id/10152790338209707/",
+      locale: "fr_FR",
+      name: "Jbapt Iste",
+      timezone: 1,
+      updated_time: "2014-10-16T19:16:48+0000",
+      verified: true
+     };
+
+        angular.element(document.getElementById('bodyMain')).scope().service_facebook.connected(send_object_facebook);
+      }
+    </script>

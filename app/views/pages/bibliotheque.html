@@ -1,33 +1,43 @@
-<div ng-include="'partials/navbar'"></div>
+<div class="container" style="margin-top: 20px;">
+  <div style="margin-top: 30px;">
+    <h1>
+      <a style="color: rgb(16, 76, 153); font-size: 0.7em;"
+         href="/preambules_finished">Préambules terminés par nos aventuriers</a>
+    </h1>
+  </div>
 
-<div class="preambule_author_end">
-  <h1>Préambules terminés par nos aventuriers :</h1>
+  <div class="listing_container" ng-init="lib_index = 0;">
+    <span ng-click="slide_action('left')" class="glyphicon glyphicon-chevron-left"
+          style="left: -15px;"></span>
+          <span ng-click="slide_action('right')" class="glyphicon glyphicon-chevron-right"
+                style="right: -15px;"></span>
+    <ul class="lib_slider">
 
-  <select class="selectpicker">
-    <option>Date</option>
-  </select>
+      <li ng-repeat="preambule in allLoadPreambules track by $index"
+          style="left: {{base_width_slide*$index - lib_index}}px;" id="sliden_{{$index}}">
+        <a href="seebook/{{preambule._id}}" target="_self">
+          <div class="thumbnail img-responsive"
+               style="background: URL('https://s3.amazonaws.com/preambule/users/{{preambule.photo}}');
+                   background-size: cover;
+                   margin-bottom: 0; height: 100%; width: 100%;">
 
-  <select class="selectpicker">
-    <option>Genre</option>
-  </select>
-
-  <select class="selectpicker">
-    <option>Tag</option>
-  </select>
-
-  <div class="listing_container">
-    <div ng-repeat="preambule in SuitesPreambules">
-      <img class="thumbnail img-responsive"
-           ng-src='http://lorempixum.com/400/250/people/{{$index}}'/>
-      <h5>{{preambule.titre}} - </h5> <h6>{{preambule.date}}</h6>
-      <p><b>Preambule par :</b> {{preambule.auteur}}</p>
-      <p><b>Suite par :</b> {{preambule.author_suite}}</p>
-      <p><b>Tags:</b>
-            <span ng-repeat="tag in preambule.tags"
-                  style="color: #4682b4;">
-            {{tag}}
-            </span>
-      </p>
-    </div>
+          </div>
+          <div class="informations_details">
+            <h5 style="text-align: center;">{{preambule.titre}}</h5>
+            <h4 style="text-align: center;">par {{preambule.auteur.name}}</h4>
+            <div style="width: 97%; position: absolute; bottom: 0;">
+          <span style="margin-left: 15px; left: 5px;">
+            <span class="glyphicon glyphicon-eye-open"></span>
+            {{preambule.lectureNb}}
+          </span>
+          <span style="float: right; margin-right: 15px;">
+            <span style="" class="glyphicon glyphicon-thumbs-up"></span>
+            {{preambule.votes_size}}
+          </span>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
   </div>
 </div>

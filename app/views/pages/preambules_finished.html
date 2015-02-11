@@ -1,0 +1,181 @@
+<div class="modal-container body-locked" ng-show="show_preambule">
+  <!--REPORT WINDOW -->
+  <div ng-show="isOpenReport" class="report_modal col-md-6 col-md-offset-3"
+       style="">
+    <h1>Reporter un preambule</h1>
+    <h5>Pourquoi reporter ce preambule ?</h5>
+    <textarea></textarea>
+    <hr>
+    <div style="float: right; padding: 0.5em; margin-bottom: 50px;">
+      <button class="btn btn-danger">Reporter</button>
+      <button class="btn btn-primary" ng-click="isOpenReport=false;">Annuler</button>
+    </div>
+
+  </div>
+  <!--END REPORT WINDOW-->
+
+  <div class="modal" style="overflow: hidden;">
+
+    <div ng-click="close_preambule()" class="modal_window_close"></div>
+    <div class="animated modal_content"
+         ng-show="show_preambule">
+
+      <div style="margin-bottom: 200px;">
+
+        <div style="position: relative; height: 75px;">
+          <span class="glyphicon glyphicon-remove close_window" ng-click="close_preambule()"></span>
+
+
+          <span ng-click="display_preambule(preambules[preambuleSelect.selectedIndex-1],
+           preambuleSelect.selectedIndex-1)" style="left: 0;"
+                class="glyphicon glyphicon-chevron-left panel_command_display"
+                ng-show="preambules[preambuleSelect.selectedIndex-1]"> <br>
+          <span style="vertical-align: top; margin-top: 5px;">
+            {{preambules[preambuleSelect.selectedIndex-1].titre}}
+          </span>
+        </span>
+
+          <p style="text-align: center; display: inline-block; width: 100%; position: absolute; margin: 0;">
+<span ng-click="open_randomPreambule()" style="margin: 0; margin-left: -0.5em;"
+      class="glyphicon glyphicon-random panel_command_display"></span>
+          </p>
+
+
+        <span style="vertical-align: top; margin-top: 15px; right: 0; text-align: right;"
+              ng-click="display_preambule(preambules[preambuleSelect.selectedIndex+1],
+               preambuleSelect.selectedIndex+1)"
+              class="glyphicon glyphicon-chevron-right panel_command_display"
+              ng-show="preambules[preambuleSelect.selectedIndex+1]"> <br>
+          <span style="margin-top: 0px; margin-top: 5px;">
+            {{preambules[preambuleSelect.selectedIndex+1].titre}}
+          </span>
+       </span>
+
+        </div>
+
+        <p style="font-size: 2.2em; text-align: justify; font-weight: bold; font-family: Open-Sans, sherif;
+   text-align: center; margin-top: 0.5em; clear: both;">
+          {{preambuleSelect.titre}}
+        </p>
+
+        <img class="col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3"
+             src="{{'https://s3.amazonaws.com/preambule/users/'+preambuleSelect.photo}}"
+             style="margin-top: 2vh; margin-bottom: 7vh; ">
+
+        <div class="content_preambule">
+          <p style="white-space: pre-line; margin-top: 10px;">{{preambuleSelect.content}}</p>
+        </div>
+        <div style=" clear: both; margin-top: 1em; margin-right: 2em; margin-bottom: 1em;">
+          <button class="btn btn-primary" style="margin-left: 45%;" ng-hide="EcrireSuite"
+                  ng-click="EcrireSuite=true;">Je veux ecrire la suite !</button>
+
+          <button class="btn btn-primary" style="margin-left: 45%;" ng-show="EcrireSuite"
+                  ng-click="EcrireSuite=false;">Revenir evaluer</button>
+        </div>
+
+        <div style="width: 80%; margin-left: 10%; color: #6495ed;" ng-hide="EcrireSuite">
+          <span>{{preambuleSelect.votes.length}} votes</span>
+          <div style="margin-top: 14px;">
+            <button class="btn btn-success" style="float: left; "
+                    ng-click="voteTry(preambuleSelect)">
+              <span style="text-align:right; font-size: 1.3em; clear: both;" class="glyphicon glyphicon-thumbs-up"></span>
+            <span style="text-align:right; margin-left: 1em; font-size: 1.3em;">
+            J'aime
+            </span>
+            </button>
+
+            <button class="btn btn-danger" style="float: left; margin-left: 0.5em; "
+                    ng-click="isOpenReport=true">
+              <span style="text-align:right; font-size: 1.3em; clear: both;"
+                    class="glyphicon glyphicon-exclamation-sign"></span>
+            <span style="text-align:right; margin-left: 1em; font-size: 1.3em;">
+            Report
+            </span>
+            </button>
+
+
+
+            <br><br><br>
+            <div>
+
+            </div>
+
+
+            <span style="color: #4682b4; font-family: Open-Sans, sherif; font-size: 1.1em;
+            margin-left: 2em;">
+
+              </span>
+          </div>
+          <div style="position: fixed; margin-left: 1em; left: 8%; top: 88%;
+          background: white; border-radius: 10px; padding: 9px 5px 5px 5px;">
+            <span class='st_facebook_large' displayText='Facebook'></span>
+            <span class='st_twitter_large' displayText='Tweet'></span>
+          </div>
+        </div>
+        <form ng-show="EcrireSuite" ng-submit="preambuleSuiteSave(newPreambuleSuite, preambuleSelect);">
+          <textarea style="height: 30vh; width: 80%; margin-left: 10%;"
+                    ng-model="newPreambuleSuite.contentSuite"></textarea>
+          <br>
+          <button class="btn btn-primary" style="margin-left: 10%;">Publier la suite</button>
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+    <div class="container" style="margin-top: 100px;">
+<div style="margin-top: 10px; background: white; padding: 0.5em; border-radius: 10px; padding-left: 115px;" >
+  <div ng-show="loading_filter" style="text-align: center;">
+    <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+  </div>
+  <div ng-repeat="preambule in preambules" style=""
+       class="preambule_articles repeat-item"
+       ng-class="{ovh : show_preambule}">
+
+    <h2 ng-click="display_preambule(preambule, $index);">{{preambule.titre}}</h2>
+    <div style="background: URL({{'https://s3.amazonaws.com/preambule/users/'+preambule.photo}});
+  height: 100%; background-size: cover; background-position: center; position: relative;
+  border: 1px solid grey;">
+      <div class="animated add_voile"
+           ng-click="display_preambule(preambule, $index);">
+        <h5 style="height: 75%;">
+          {{preambule.description}}
+        </h5>
+        <!--<h5 style="display: inline-block; margin: 0; font-weight: bold;">TAG :</h5>-->
+      </div>
+
+      <div class="info_detail_preambule">
+        <div class="" style="clear: both; margin: 0; color: #eee;
+             display: inline-block;"
+             ng-repeat="tag in preambule.categorie track by $index">
+          {{tag}}{{$last ? '' : ',&#32;'}}
+        </div>
+        <span style="" class="glyphicon glyphicon-thumbs-up"></span>
+          <span style="padding-top: 0;">
+            {{preambule.votes_size}}
+          </span>
+
+        <span style="" class="glyphicon glyphicon-eye-open"></span>
+          <span style="padding-top: 0;">
+            {{preambule.lectureNb}}
+          </span>
+      </div>
+    </div>
+
+    <div class="zone_bottom_preambule">
+      <a href="/seeProfil/{{preambule.auteur._id}}">
+        <h1>
+          <img src="{{preambule.auteur.image_user}}"
+               style="width: 30px; height: 30px; border-radius: 1em;">
+          <b style="font-size: 0.9em;">{{preambule.auteur.name}}</b>
+        </h1> </a>
+
+      <h4 style="padding-top: 7px;">
+        <i>{{preambule.date | plus1}}</i>
+      </h4>
+    </div>
+  </div>
+</div>
+    </div>

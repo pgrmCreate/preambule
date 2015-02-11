@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('preambuleApp')
-    .controller('LoginCtrl', function ($scope, Auth, $location) {
+    .controller('LoginCtrl', function ($scope, Auth, $location, $rootScope) {
         $scope.user = {};
         $scope.errors = {};
 
@@ -22,4 +22,6 @@ angular.module('preambuleApp')
                     });
             }
         };
+
+
     });

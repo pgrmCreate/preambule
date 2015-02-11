@@ -1,0 +1,88 @@
+<style>
+  body {
+    background: white;
+  }
+
+  .content_preambule {
+    border: none;
+  }
+
+  .content_preambule > p::first-letter {
+    font-size: 400%;
+    color: #666;
+    margin: 0.25em;
+  }
+</style>
+
+<div class="container-fluid" style="margin-top: 50px; background: #ffffff; width: 70vw;">
+  <div style="position: fixed; margin-left: 0.75vw; left: 3px; top: 0%; margin-top: 55px;
+          background: white; border-radius: 10px; padding: 9px 5px 5px 5px; width: 13vw;">
+    <span class='st_facebook_large' displayText='Facebook'></span>
+    <span class='st_twitter_large' displayText='Tweet'></span>
+    <br>
+    <span style="color: #6495ed;">{{preambuleSelect.votes.length}} votes</span>
+    <div style="margin-top: 14px;">
+      <button class="btn btn-success" style="float: left; "
+              ng-click="voteTry(preambuleSelect)">
+        <span style="text-align:right; font-size: 1.3em; clear: both;" class="glyphicon glyphicon-thumbs-up"></span>
+            <span style="text-align:right; margin-left: 1em; font-size: 1.3em;">
+            J'aime
+            </span>
+      </button>
+      <br>
+      <button class="btn btn-danger" style="float: left; margin-top: 0.5em; "
+              ng-click="isOpenReport=true">
+              <span style="text-align:right; font-size: 1.3em; clear: both;"
+                    class="glyphicon glyphicon-exclamation-sign"></span>
+            <span style="text-align:right; margin-left: 1em; font-size: 1.3em;">
+            Report
+            </span>
+      </button>
+
+      <br> <br> <br>
+
+      <div ng-show="currentUser.name == preambuleSelect.auteur.name"
+           style="margin-top: 16px;">
+        <button ng-click="mode_edit=true; pickedEdit_preambule=preambuleSelect;" ng-hide="mode_edit"
+                style="" class="btn btn-primary">
+          <span class="glyphicon glyphicon-pencil" style="margin-right: 10px;"></span>
+          Editer
+        </button>
+
+        <button ng-click="mode_edit=null" ng-show="mode_edit"
+                style="" class="btn btn-primary">
+          <span class="glyphicon glyphicon-eye-open" style="margin-right: 10px;"></span>
+          Regarder
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size: 3em; text-align: justify; font-weight: bold; font-family: Bookman, Georgia, Times New Roman, serif;
+   text-align: center; margin-top: 0.5em; clear: both; color: RGB(16,76,153);">
+    {{preambule_select.titre}}
+    <!--L'oiseau de fer-->
+  </p>
+
+  <img class="col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3"
+       src="{{'https://s3.amazonaws.com/preambule/users/'+preambule_select.photo}}"
+       style="margin-top: 2vh; margin-bottom: 7vh; ">
+
+  <div class="content_preambule">
+    <p style="white-space: pre-line; margin-top: 10px;">{{preambule_select.content}}</p>
+  </div>
+  <div style=" clear: both; margin-top: 1em; margin-right: 2em; margin-bottom: 1em;">
+    <button class="btn btn-primary" style="margin-left: 45%;" ng-hide="EcrireSuite"
+            ng-click="EcrireSuite=true;">Je veux ecrire la suite !</button>
+
+    <button class="btn btn-primary" style="margin-left: 45%;" ng-show="EcrireSuite"
+            ng-click="EcrireSuite=false;">Revenir evaluer</button>
+  </div>
+
+  <form ng-show="EcrireSuite" ng-submit="preambuleSuiteSave(newPreambuleSuite, preambule_select);">
+    <textarea style="height: 30vh; width: 80%; margin-left: 10%;"
+              ng-model="newPreambuleSuite.contentSuite"></textarea>
+    <br>
+    <button class="btn btn-primary" style="margin-left: 10%;">Publier la suite</button>
+  </form>
+</div>

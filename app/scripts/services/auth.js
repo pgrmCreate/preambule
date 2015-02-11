@@ -5,10 +5,27 @@ angular.module('preambuleApp')
     
     // Get currentUser from cookie
     $rootScope.currentUser = $cookieStore.get('user') || null;
+
     $cookieStore.remove('user');
+
 
     return {
 
+        loginByFacebook: function(user, callback) {
+            var cb = callback || angular.noop;
+
+            console.log("RESULT ....type");
+            console.log(user);
+            return Session.save({
+                email: user,
+                password: "nopassword"
+            }, function(user) {
+                $rootScope.currentUser = user;
+                return cb();
+            }, function(err) {
+                return cb(err);
+            }).$promise;
+        },
       /**
        * Authenticate user
        * 

@@ -4,25 +4,55 @@
        ng-click="display_modal = false; display_login = false; modal_write_preambule=false;">
   </div>
 
+  <div class="modal-container" ng-show="modal_write_preambule"
+       ng-click="show_preambule=false; display_modal = false;">
+    <div ng-click="closeWriting()" class="modal_window_close"></div>
 
 
-  <div class="modal-container" ng-class="{'dp-none' : !modal_write_preambule}" ng-click="show_preambule=false;">
     <div class="modal col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2"
-         ng-class="{'dp-block' : modal_write_preambule}" style="background: #eef">
+         ng-show="modal_write_preambule"
+         style="background: #eef;" >
       <div>
+
+
     <span class="glyphicon glyphicon-remove close_window"
-          ng-click="modal_write_preambule=false; display_modal = false;"></span>
+          ng-click="closeWriting()"></span>
         <form class="form-horizontal"
               enctype='multipart/form-data'
               ng-upload
               ng-submit="preambuleSave(newPreambule);">
           <fieldset>
             <!-- Form Name -->
-            <legend style="width: 95%;">Ajout d'un nouveau préambule</legend>
+            <!--<legend style="width: 95%;">-->
+            <!--<span ng-class="{onglet_creation : write_type==='author',-->
+            <!--onglet_creation_active : write_type==='normal'}"-->
+            <!--ng-click="write_type='normal'">Ajout d'un nouveau préambule</span>-->
+            <!--<span ng-class="{onglet_creation : write_type==='normal',-->
+            <!--onglet_creation_active : write_type==='author'}"-->
+            <!--ng-click="write_type='author'">Ecrire pour un auteur</span>-->
+            <!--</legend>-->
 
-            <!-- Text input-->
-            <div class="form-group">
-              <div class="col-md-4 col-md-offset-2">
+            <div style="margin-top: 30px;" ng-init="picked_author=4">
+              <!-- Text input-->
+              <div ng-repeat="auteur in liste_auteurs" class="col-xs-3 choose_author"
+                  ng-click="select_author_writting($index)" ng-class="{choose_author_active : picked_author==$index}">
+                <h3 style="display: inline-block; text-align: center;">{{auteur.nom}}</h3>
+                <img style="border-radius: 10px;" class="img img-responsive"
+                     src="http://lorempixel.com/400/200/people/{{$index}}"/>
+              </div>
+              <div class="col-xs-3 choose_author" ng-click="select_author_writting(4)"
+                   ng-class="{choose_author_active : picked_author==4}"
+                  style="margin-left: 38%;">
+                <h3 style="display: inline-block; text-align: center;">Libre préambule</h3>
+                <img style="border-radius: 10px; width: 50%; margin-left: auto; margin-right: auto;" class="img img-responsive"
+                     src="images/navbar/go_simple.png"/>
+              </div>
+
+              <!--<h3 style="float: right; background: lightsteelblue; padding: 10px;-->
+              <!--border-radius: 10px; margin: 10px;">{{result_picked}}</h3> -->
+
+            <div class="form-group" style="clear: both;">
+              <div class="col-md-4 col-md-offset-2" style="margin-top: 30px;">
                 <input ng-model="newPreambule.titre"
                        id="titre" name="titre" type="text"
                        placeholder="Titre du préambule" class="form-control input-md">
@@ -34,8 +64,8 @@
               <div class="col-md-4 col-md-offset-2">
                 <textarea placeholder="Courte description" ng-model="newPreambule.description"
                           class="form-control" id="content" name="content"
-                          ng-change="charaRemaining = 140 - newPreambule.description.length;"
-                          style="height: 6em;" maxlength="140" ng-init="charaRemaining = 140;"></textarea>
+                          ng-change="charaRemaining = 400 - newPreambule.description.length;"
+                          style="height: 6em;" maxlength="400" ng-init="charaRemaining = 400;"></textarea>
                 <span class="help-block" style="display: inline-block;">facultatif</span>
                 <span style="margin-left: 1em;"><b>{{charaRemaining}}</b> caractères restants</span>
               </div>
@@ -44,7 +74,7 @@
             <!-- Textarea -->
             <div class="form-group">
               <div class="col-md-8 col-md-offset-2">
-                <textarea placeholder="Preambule de {{newPreambule.auteur}}" ng-model="newPreambule.content"
+                <textarea placeholder="Preambule de {{newPreambule.auteur.name}}" ng-model="newPreambule.content"
                           class="form-control" style="height: 400px; overflow-y: scroll;"
                           id="content" name="content"></textarea>
               </div>
@@ -53,10 +83,13 @@
             <div class="form-group">
               <div class="col-md-8 col-md-offset-2">
                 <p style="margin-bottom: 0.5em;">Selectionnez votre couverture</p>
-                <input style="margin-bottom: 1.5em;"
-                       type="file" ng-file-select="onFileSelect($files)">
-                <img class="col-md-3" id="blah" src="../../images/navbar/image-add.png" alt="" style="background: lightsteelblue;"/>
+                <input accept="image/jpeg"
+                       style="margin-bottom: 1.5em;" onchange="angular.element(this).scope().upload_image()" type="file" id="files">
+                <!--<input style="margin-bottom: 1.5em;" type="file" ng-file-select="onFileSelect($files)">-->
+                <img class="col-md-3" id="preview" src="images/navbar/image-add.png" alt="" style="background: lightsteelblue;"/>
               </div>
+              <input type="hidden" id="avatar_url" name="avatar_url" value="images/navbar/image-add.png" />
+              <!--<h4 id="new_upload_status"></h4>-->
             </div>
 
             <div class="form-group">
@@ -83,111 +116,160 @@
                   </div>
                 </div>
               </div>
-
             </div>
+
+
+            <div class="col-md-6 col-md-offset-2" style="padding: 4px; height: 75px;">
+              <label for="sel1">Catégorie</label>
+              <select class="form-control" id="sel1"
+                      ng-model="newPreambule.categorie[0]"
+                      ng-options="item as item.name for item in items">
+              </select>
+            </div>
+
+            <div class="col-md-6 col-md-offset-2" style="padding: 4px; height: 75px;">
+              <select class="form-control" id="sel1"
+                      ng-model="newPreambule.categorie[1]"
+                      ng-options="item as item.name for item in items">
+              </select>
+            </div>
+
+
             <div class="col-md-6 col-md-offset-2">
-              <button class="btn btn-primary"
-                      style="padding: 1em; font-size: 1.3em; margin: 20px 0 100px 0; clear: both;">
+              <button class="btn btn-primary" id="button_publish"
+                      style="padding: 1em; font-size: 1.3em; margin: 20px 0 100px 0; clear: both;"
+                      disabled>
                 Publier!
               </button>
             </div>
-          </fieldset>
-        </form>
       </div>
-
+      </fieldset>
+      </form>
     </div>
+
   </div>
+</div>
 
-  <div class="navbar navbar-default navbar-static-top"
-       style="z-index: 4; box-shadow: 0px 3px 15px 0px rgba(50, 50, 50, 0.18);">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+
+<div class="navbar navbar-default navbar-fixed-top parchemin_top"
+     style="z-index: 4; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+      border-bottom: 1px solid #aaa; position: fixed; top: 0;
+      background: white;">
+  <div class="container" style="padding: 0;">
+    <div class="navbar-header" style="">
+      <div class="navbar-toggle" style="float: left;">
+        <ul class="nav navbar-nav menu_nav_links_short" style="">
+          <li ng-class="{actived_link : current_link=='/'}"><a href="/" target="_self">
+            <img src="images/navbar/book.png" class="icone_navbar">
+          </a></li>
+          <!--<li><a href="auteurs" target="_self">Auteurs</a></li>-->
+          <!--<li><a href="preambules">Les préambules</a></li>-->
+          <!--<li><a href="ecrire">Ecrire</a></li>-->
+          <li ng-class="{actived_link : current_link=='/bibliotheque'}">
+            <a href="bibliotheque" target="_self">
+              <img src="images/navbar/multiples_books.png" class="icone_navbar">
+            </a></li>
+        </ul>
+      </div>
+      <button style="margin-top: 30px;"
+              type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
+
       </button>
-
     </div>
 
-    <div class="collapse navbar-collapse" style="border-bottom: 2px double #eee;">
-      <ul class="nav navbar-nav">
-        <li><a href="/" target="_self">Préambules</a></li>
-        <li><a href="auteurs" target="_self">Auteurs</a></li>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav menu_nav_links" style="">
+        <li ng-class="{actived_link : current_link=='/'}"><a href="/" target="_self">
+          <img src="images/navbar/book.png" class="icone_navbar">
+          Préambules
+        </a></li>
+        <!--<li><a href="auteurs" target="_self">Auteurs</a></li>-->
         <!--<li><a href="preambules">Les préambules</a></li>-->
         <!--<li><a href="ecrire">Ecrire</a></li>-->
-        <li><a href="bibliotheque" target="_self">Bibliothèque</a></li>
+        <li ng-class="{actived_link : current_link=='/bibliotheque'}">
+          <a href="bibliotheque" target="_self">
+            <img src="images/navbar/multiples_books.png" class="icone_navbar">
+            Bibliothèque
+          </a></li>
       </ul>
 
+
       <a class="navbar-brand" href="#" target="_self" style="padding: 0.2em; left: 45%; position: absolute;">
-        <img src="../../images/navbar/logo.png" style="height: 100%;">
+        <img src="images/navbar/logo.png" style="height: 100%; width: 140px;">
       </a>
       <ul class="nav navbar-nav navbar-right" style="margin-right: 0;">
 
         <li style="cursor: pointer;"
             ng-hide="currentUser">
-          <a  ng-click="display_login = true; display_userMenu = false;  display_modal = true;">
+          <a  ng-click="openLogin()">
             se connecter</a>
         </li>
-        <li style="cursor: pointer; padding: 0; border: 1px solid #ddd;
-        margin-top: 7px;"
-            ng-click="write_newPreambule()"
-            ng-show="currentUser">
-          <img style="width: 3em; height: 38px; border-right: 1px dotted #aaa; background: #eef; padding: 0.25em;"
-               src="../../images/general_small_elements/publish.png">
+
+
+        <li style="cursor: pointer;" class="dropdown" ng-show="currentUser">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding: 10px;">
+            <img src="{{currentUser.image_user}}"
+                 style="width: 30px; height: 30px; border-radius: 1em;">
+            <b class="caret"></b></span></a>
+
+          <ul class="dropdown-menu">
+            <li><a href="/seeProfil/{{currentUser.id}}"><h4 style="margin-left: 20px;"><b>{{currentUser.name}}</b></h4></a></li>
+            <hr style="margin: 2px;">
+            <li><a href="/profil">Paramètres</a></li>
+            <li><a ng-click="logout();">Deconnexion</a></li>
+          </ul>
+        </li>
+
+        <!--RIGHT NAV BAR LONG SCREEN-->
+        <li class="writePreambule_button" ng-click="write_newPreambule()"
+            ng-show="currentUser"
+            style="">
+          <img style="width: 3em; height: 35px; padding: 0.25em;"
+               src="images/navbar/go_simple.png">
           <div style="display: inline-block;
-          height: 37px; vertical-align: top; margin-left: -0.25em;">
-            <button class="btn btn-primary"
-                    style="width: 100%; padding-top: 10px; display: inline-block; margin: 0;
-                 border-radius: 0 0.25em 0.25em 0;">
+          height: 35px; vertical-align: top; margin-left: -0.25em; padding-top: 0.5em;
+          padding-right: 1em;">
+            <span style="width: 100%; color: white; background: RGB(16,76,153);">
               Publier un préambule
-            </button>
+            </span>
           </div>
         </li>
-        <li style="cursor: pointer;"><a
-            ng-click="display_login = false; display_userMenu = true; display_modal = true;"
-            ng-show="currentUser">
-          {{currentUser.name}}<span style="margin-left: 0.5em;" class="glyphicon glyphicon-arrow-down"></span></a>
 
+        <!--RIGHT NAV BAR SHORT SCREEN NO CONNECTED-->
+        <li ng-click="display_login = true; display_modal = true;"
+            ng-show="!currentUser"
+            style=""
+            class="writePreambule_button">
+          <img style="width: 3em; height: 34px; padding: 0.25em;"
+               src="images/navbar/go_simple.png">
+          <div style="display: inline-block;
+          height: 35px; vertical-align: top; margin-left: -0.25em; padding-top: 0.5em;
+          padding-right: 1em;">
+            <span style="width: 100%; color: white; background: RGB(16,76,153);">
+              Publier un préambule
+            </span>
+          </div>
         </li>
 
 
-        <li style="margin-right: 0.5em;">
-          <a href="#about">à propos</a>
-        </li>
+        <!--<li style="margin-right: 0.5em;">-->
+        <!--<a href="#about">à propos</a>-->
+        <!--</li>-->
       </ul>
     </div>
   </div>
-
-  <div style="background: RGBA(0,0,0,0.2); position: absolute; width: 100vw; height: 100vh; top: 0;
-  z-index: 8; " ng-show="display_modal"
-       ng-click="display_login=false; display_userMenu=false; display_modal=false;"></div>
-
-  <div class="animated userMenu"
-      ng-class="{'fadeInDown' : display_userMenu, 'fadeOut' : !display_userMenu}"
-      ng-show="display_userMenu">
-    <button class="btn btn-logout" ng-click="logout();">
-      Deconnexion
-      <span class="glyphicon glyphicon-off"></span>
-    </button>
-
-    <button class="btn btn-publish">
-      Publier un preambule
-      <span class="glyphicon glyphicon-pencil"></span>
-    </button>
-
-    <button class="btn btn-setting">
-      Options de profile
-      <span class="glyphicon glyphicon-wrench"></span>
-    </button>
-  </div> 
-
-  <div id="modal_login" ng-show="display_login" class="display_modal">
-    <h1>Connexion</h1>
-    <div ng-include="'partials/login'"></div>
-  </div>
 </div>
 
+<div ng-click="closeLogin()" class="modal_window_close" ng-show="display_login"></div>
 
+<div class="modal-container display_modal" ng-show="display_login" id="modal_login">
+  <h1>Connexion</h1>
+  <div ng-include="'partials/login'"></div>
+</div>
+</div>
 
 
 

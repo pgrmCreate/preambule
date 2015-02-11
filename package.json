@@ -2,6 +2,7 @@
   "name": "preambule",
   "version": "0.0.0",
   "dependencies": {
+    "aws-sdk": "^2.0.22",
     "body-parser": "~1.0.0",
     "busboy": "^0.2.8",
     "compression": "~1.0.1",

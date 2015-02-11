@@ -1,0 +1,84 @@
+<div class="modal-container body-locked" ng-show="show_preambule">
+  <div class="modal" style="overflow: hidden;">
+    <div ng-click="close_preambule()" class="modal_window_close"></div>
+    <div class="animated modal_content"
+         ng-show="show_preambule">
+
+      <div style="margin-bottom: 200px;">
+        <span class="glyphicon glyphicon-remove close_window" ng-click="show_preambule=false;"></span>
+        <p style="font-size: 2.2em; text-align: justify; font-weight: bold; font-family: Open-Sans, sherif;
+   text-align: center; margin-top: 0.5em;">
+          <input type="text" style="font-size: 0.5em;"
+                 ng-model="preambuleSelect.titre">
+        </p>
+
+        <img class="col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3"
+             src="{{'https://s3.amazonaws.com/preambule/users/'+preambuleSelect.photo}}"
+             style="margin-top: 2vh; margin-bottom: 7vh; ">
+
+        <div class="content_preambule">
+          <textarea ng-model="preambuleSelect.content"
+                    style="font-size: 1.1em; width: 100%; margin-top: 10px;"></textarea>
+        </div>
+
+
+        <input style="margin-top: 10px; float: right; margin-right: 150px;"
+               type="button" class="btn btn-primary" ng-click="saveEdit(preambuleSelect)"
+               value="Enregistrer les modifications">
+        <input style="margin-top: 10px; float: right; margin-right: 20px;"
+               type="button" class="btn btn-danger" ng-click="deleteEdit(preambuleSelect)"
+               value="Effacer le preambule">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  <h2 style="margin-top: 10px;">Mes preambules</h2>
+<div style="margin-left: 10%;">
+  <div ng-repeat="preambule in preambules" style=""
+       class="preambule_articles repeat-item"
+       ng-class="{ovh : show_preambule}">
+    <h2 ng-click="display_preambule(preambule);">{{preambule.titre}}</h2>
+    <div style="background: URL({{'https://s3.amazonaws.com/preambule/users/'+preambule.photo}});
+  height: 100%; background-size: cover; background-position: center; position: relative;
+  border: 1px solid grey;">
+      <div class="animated add_voile"
+           ng-click="display_preambule(preambule);">
+        <h5 style="height: 40%;">
+          {{preambule.description}}
+        </h5>
+        <h5 style="display: inline-block; margin: 0; font-weight: bold;">TAG :</h5>
+        <div class="" style="clear: both; margin: 0; color: #555; display: inline-block;"
+             ng-repeat="tag in preambule.tags track by $index">
+          {{tag}}{{$last ? '' : ',&#32;'}}
+        </div>
+      </div>
+
+      <div class="info_detail_preambule">
+        <span style="" class="glyphicon glyphicon-thumbs-up"></span>
+          <span style="padding-top: 0;">
+            {{preambule.votes_size}}
+          </span>
+
+        <span style="" class="glyphicon glyphicon-eye-open"></span>
+          <span style="padding-top: 0;">
+            {{preambule.lectureNb}}
+          </span>
+      </div>
+    </div>
+
+    <div class="zone_bottom_preambule">
+      <a href="/seeProfil/{{preambule.auteur._id}}">
+        <h1>
+          <img src="{{preambule.auteur.image_user}}"
+               style="width: 30px; height: 30px; border-radius: 1em;">
+          <b>{{preambule.auteur.name}}</b>
+        </h1> </a>
+
+      <h4 style="padding-top: 7px;">
+        <i>{{preambule.date | plus1}}</i>
+      </h4>
+    </div>
+    </div>
+</div>

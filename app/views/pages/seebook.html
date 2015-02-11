@@ -1,0 +1,50 @@
+<style>
+  body {
+    background: white;
+  }
+</style>
+
+  <h3>Index : {{margin_select}}</h3>
+
+  <div class="container">
+
+  <span class="glyphicon glyphicon-chevron-left bibli_arrow"
+        ng-click="changePage('left');"
+      style="left: 10px;"></span>
+
+  <span class="glyphicon glyphicon-chevron-right bibli_arrow"
+        ng-click="changePage('right');"
+      style="right: 10px;"></span>
+
+  <ul class="book_reader" ng-init="margin_select = 0;">
+    <li style="left: {{0 - margin_select}}px;">
+      <h1 style="margin-top: 25px; text-align: center;">
+        {{selectBook.titre}}
+      </h1>
+
+      <img
+           style="width: 400px; margin: 50px auto 50px auto; clear: both; display: block;"
+           src="https://s3.amazonaws.com/preambule/users/{{selectBook.photo}}">
+
+      <p style="text-align: center;">
+        {{selectBook.description}}
+      </p>
+    </li>
+
+
+    <li style="left: {{1140 - margin_select}}px;">
+      <h1>
+        {{selectBook.content}}
+      </h1>
+    </li>
+
+    <li style="left: {{2280 - margin_select}}px;">
+      <h1>
+        {{selectBook.contentSuite}}
+      </h1>
+    </li>
+  </ul>
+</div>
+
+</div>
+
