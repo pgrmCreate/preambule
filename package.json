@@ -14,7 +14,6 @@
     "express": "^4.8.4",
     "express-session": "~1.0.2",
     "gzippo": "^0.2.0",
-    "httpsync": "0.0.8",
     "lodash": "~2.4.1",
     "method-override": "~1.0.0",
     "mongoose": "~3.8.8",

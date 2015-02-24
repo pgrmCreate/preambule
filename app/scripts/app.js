@@ -9,7 +9,8 @@ angular.module('preambuleApp', [
         'ngAnimate',
         'angularFileUpload',
         'angularMoment',
-        'ui.bootstrap'
+        'ui.bootstrap',
+        'ngImgCrop'
 
     ])
     .run(function($rootScope, Facebook) {
@@ -34,7 +35,6 @@ angular.module('preambuleApp', [
             return true;
         };
     })
-
     .filter('plus1', function($filter) {
         return function(input) {
             var dateNow = [];

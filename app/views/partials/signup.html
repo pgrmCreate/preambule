@@ -1,7 +1,20 @@
 <div ng-include="'partials/navbar.html'"></div>
 
+  <div style="height: 100vh; width: 100vw; background: RGBA(255,255,255,0.8);
+  z-index: 10; position: absolute;" ng-show="check_picture" id="DDDQ">
+    <div style="background: #eee; border-radius: 10px; position: absolute;
+    top: 40%; height: 120px; max-width: 600px; width: 300px; margin-left: auto;
+    margin-right: auto; left: 0; right: 0; padding: 5px 15px 15px 5px;" id="container_checker">
+      <h4>Oups ! tu n'as pas choisi de photo, veux-tu continuer quand même ?</h4>
+      <button class="btn btn-primary" id="ok_checkPicture">OUI</button>
+      <button class="btn btn-primary" id="wrong_checkPicture">NON</button>
+    </div>
+  </div>
+
+
+
 <div class="container" style="margin-top: 50px; height: 90vh; overflow-y: scroll; background: white;
-border-radius: 10px;">
+border-radius: 0 0 10px 10px;">
   <div class="col-sm-12">
     <h1>Sign up</h1>
   </div>
@@ -63,6 +76,11 @@ border-radius: 10px;">
         </p>
       </div>
 
+      <select style="margin-bottom: 10px; height: 34px; " class="col-xs-12">
+        <option ng-repeat="country in allCountry">{{country}}</option>
+      </select>
+
+
       <div class="form-group" ng-class="{ 'has-success': form.password.$valid && submitted,
                                           'has-error': form.password.$invalid && submitted }">
         <label>Date de naissance</label> <br>
@@ -80,8 +98,9 @@ border-radius: 10px;">
       <div class="form-group" ng-class="{ 'has-success': form.password.$valid && submitted,
                                           'has-error': form.password.$invalid && submitted }">
         <label>Sexe</label> <br>
-        <input type="radio" name="user.sex" value="homme" checked="checked" > Homme
-        <input type="radio" name="user.sex" value="femme" style="margin-left: 1em;"> Femme
+        <input type="radio" ng-model="user.sex" value="homme"> Homme
+        <input type="radio" ng-model="user.sex" value="femme" style="margin-left: 1em;"> Femme
+        <p ng-show="error_sex_choose" style="color: #a00">Choisissez votre civilite</p>
       </div>
 
       <div class="form-group">
@@ -97,7 +116,7 @@ border-radius: 10px;">
                style="background: lightsteelblue;"/>
         </div>
         <input type="hidden" id="avatar_url_account"
-               name="avatar_url_account" value="images/navbar/user.png"
+               name="avatar_url_account" value="images/general_small_elements/anonymous.png"
             />
         <!--<h4 id="new_upload_status"></h4>-->
       </div>

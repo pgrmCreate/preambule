@@ -4,7 +4,7 @@ $modal_background : #eee;
 $btn-userMenu-background : rgba(255,255,255,0.7);
 $modal_background_preambule : rgba(0,0,0,0.8);
 $bleu_preambule : RGB(16,76,153);
-$border_left_preambule : 6px solid #ccc;
+$border_left_preambule : none;
 
 @import '../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 
@@ -20,8 +20,8 @@ p,h1,h2,h3,h4,h5,h6,div,span,label {
 .navbar-nav {
 
   li:hover {
-    background: #eee;
     a:hover {
+      background: #eee;
       color: dodgerblue;
     }
   }
@@ -98,7 +98,7 @@ div.preambule_articles {
     cursor: pointer;
     padding: 0.25em 1em 0.25em 0em;
     text-align: center;
-    border-radius: 0em 0.3em 0 0;
+    border-radius: 0.2em 0.2em 0 0;
   }
 
   h4 {
@@ -372,6 +372,19 @@ div.listing_tags {
   animation: zoomIn;
 }
 
+.modal-container_typeWrite {
+  display: block;
+  overflow-y: scroll;
+  position: fixed;
+  top: 51px;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  z-index: 12;
+  animation: zoomIn;
+}
+
 .modal {
   margin-top: 55px;
   display: block;
@@ -385,7 +398,7 @@ div.listing_tags {
     max-height: 100vh;
     z-index: 7;
     padding: 1em;
-    top: 0;
+    top: 51px;
     overflow: scroll;
     cursor: auto;
   }
@@ -394,6 +407,7 @@ div.listing_tags {
 
   }
 }
+
 
 .userMenu {
   position: absolute;
@@ -588,7 +602,8 @@ div.listing_tags {
 
     a {
       padding: 13px 12px 12px 12px;
-
+      font-size: 1.1em;
+      text-align: center;
     }
 
     width: 150px;
@@ -713,7 +728,7 @@ div.listing_tags {
 .zone_bottom_preambule {
   background: white;
   padding: 0.5em;
-  border-radius: 0 0 0.5em 0.5em;
+  border-radius: 0 0 0.2em 0.2em;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
   margin-bottom: 40px;
 }
@@ -794,14 +809,18 @@ div.listing_tags {
 
 .tabset_editProfile {
   cursor: pointer;
-  background: white;
   padding: 0.5em;
-  width: 100%;
-  display: inline-block;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
 
   button {
+    text-align: center;
     border: 1px inset grey;
-    margin-left: -4px;
+    border: none;
+    color: white;
+    background: none;
+    margin-left: 4px;
     position: relative;
   }
 
@@ -810,10 +829,11 @@ div.listing_tags {
   }
 
   .select_menu_active {
-    border-top: 1px outset grey;
-    border-bottom: none;
-    background: white;
+//    border-top: 1px outset grey;
+//    border-bottom: none;
+//    background: white;
     zoom: 110%;
+    color: rgb(32, 120, 180);;
   }
 }
 

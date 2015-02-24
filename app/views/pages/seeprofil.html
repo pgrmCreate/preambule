@@ -5,30 +5,34 @@
   <h1 style="text-align: center; color: #ccc;">
     {{user_select.name}}
   </h1>
+
+  <div class="tabset_editProfile" ng-init="profil_select_menu='all'" style="padding-top: 0;">
+
+    <button ng-class="{select_menu_active : profil_select_menu=='all'}"
+            ng-click="profil_select_menu='all'">
+      <i class="glyphicon glyphicon-th-large"></i> Tout
+    </button>
+
+    <button ng-class="{select_menu_active : profil_select_menu=='account'}"
+            ng-click="profil_select_menu='account'">
+      <i class="glyphicon glyphicon-pencil"></i> Preambules
+    </button>
+
+    <button ng-class="{select_menu_active : profil_select_menu=='preambules'}"
+            ng-click="profil_select_menu='preambules'">
+      <i class="glyphicon glyphicon-th-large"></i> Suites de preambules
+    </button>
+
+
+
+
+  </div>
 </div>
+
 
 <div style="margin-top: 100px; background: white; border-radius: 0.5em;" class="container">
 
-<div class="tabset_editProfile" ng-init="profil_select_menu='all'" style="padding-top: 0;">
-
-  <button ng-class="{select_menu_active : profil_select_menu=='all'}"
-          ng-click="profil_select_menu='all'">
-    <i class="glyphicon glyphicon-th-large"></i> Tout
-  </button>
-
-  <button ng-class="{select_menu_active : profil_select_menu=='account'}"
-          ng-click="profil_select_menu='account'">
-    <i class="glyphicon glyphicon-pencil"></i> Preambules
-  </button>
-
-  <button ng-class="{select_menu_active : profil_select_menu=='preambules'}"
-          ng-click="profil_select_menu='preambules'">
-    <i class="glyphicon glyphicon-th-large"></i> Suites de preambules
-  </button>
-
-
-
-</div> <br>
+ <br>
 
   <div ng-repeat="preambule in preambules" style="clear: both; margin-top: 20px;"
        class="preambule_articles repeat-item"

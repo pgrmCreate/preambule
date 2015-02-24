@@ -3,7 +3,7 @@
 
 
 angular.module('preambuleApp')
-    .controller('MainCtrl', function ($scope, $http, $rootScope, Auth, $location,
+    .controller('MainCtrl', function ($scope, $http, $rootScope, Auth, $location, $window,
                                       $route, $filter, userFilter, $timeout, $interval,Facebook ) {
         $scope.preambuleSelect = [];
         $scope.preambules = [];
@@ -152,19 +152,24 @@ angular.module('preambuleApp')
         };
 
         $scope.display_preambule = function (preambule, index) {
-            console.log(preambule.titre);
-            $scope.preambuleSelect = preambule;
-            console.log("index selected :");
-            console.log(index);
-            $scope.preambuleSelect.selectedIndex = index;
-            $rootScope.show_preambule = true;
-            $rootScope.bodyLock = true;
-            $scope.preambuleSelect.lectureNb++;
-            $http.post('/api/updatePreambule', $scope.preambuleSelect)
-                .success(function(reply) {
-                });
 
-            $location.path('/seepreambule/'+preambule._id, false);
+//            $location.path('/seepreambule/'+preambule._id);
+
+            $window.open('/seepreambule/'+preambule._id);
+
+//            console.log(preambule.titre);
+//            $scope.preambuleSelect = preambule;
+//            console.log("index selected :");
+//            console.log(index);
+//            $scope.preambuleSelect.selectedIndex = index;
+//            $rootScope.show_preambule = true;
+//            $rootScope.bodyLock = true;
+//            $scope.preambuleSelect.lectureNb++;
+//            $http.post('/api/updatePreambule', $scope.preambuleSelect)
+//                .success(function(reply) {
+//                });
+//
+//            $location.path('/seepreambule/'+preambule._id, false);
         };
 
         $scope.addComment = function (preambulePicked) {

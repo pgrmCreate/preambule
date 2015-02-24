@@ -1,15 +1,17 @@
+
+
 <div ng-controller="NavbarCtrl">
 
   <div class="animated" ng-class="{fadeInFast : display_modal, fadeOutFast: !display_modal}"
        ng-click="display_modal = false; display_login = false; modal_write_preambule=false;">
   </div>
 
-  <div class="modal-container" ng-show="modal_write_preambule"
+  <div class="modal-container_typeWrite" ng-show="modal_write_preambule"
        ng-click="show_preambule=false; display_modal = false;">
-    <div ng-click="closeWriting()" class="modal_window_close"></div>
+    <div ng-click="closeWriting()" class="modal_window_close" style="background: none;"></div>
 
 
-    <div class="modal col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2"
+    <div class="modal col-md-12 col-lg-12 col-xs-12"
          ng-show="modal_write_preambule"
          style="background: #eef;" >
       <div>
@@ -86,7 +88,19 @@
                 <input accept="image/jpeg"
                        style="margin-bottom: 1.5em;" onchange="angular.element(this).scope().upload_image()" type="file" id="files">
                 <!--<input style="margin-bottom: 1.5em;" type="file" ng-file-select="onFileSelect($files)">-->
-                <img class="col-md-3" id="preview" src="images/navbar/image-add.png" alt="" style="background: lightsteelblue;"/>
+                <img class="col-md-3" id="preview" src="images/navbar/image-add.png" alt=""
+                     style="background: lightsteelblue;"/>
+
+
+  <div>
+    <div>Selectionner une image: <input type="file" id="fileInput" /></div>
+    <div class="cropArea">
+      <img-crop area-type="square" result-image-quality=1 image="myImage" result-image="myCroppedImage"></img-crop>
+    </div>
+    <div>Image du preambule:</div>
+    <div><img ng-src="{{myCroppedImage}}" id="fileOutput"/></div>
+  </div>
+
               </div>
               <input type="hidden" id="avatar_url" name="avatar_url" value="images/navbar/image-add.png" />
               <!--<h4 id="new_upload_status"></h4>-->
@@ -209,16 +223,19 @@
         </li>
 
 
-        <li style="cursor: pointer;" class="dropdown" ng-show="currentUser">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding: 10px;">
-            <img src="{{currentUser.image_user}}"
-                 style="width: 30px; height: 30px; border-radius: 1em;">
-            <b class="caret"></b></span></a>
-
+        <li style="cursor: pointer; height: 49px; padding-top: 0px; margin-right: 5px;" class="dropdown" ng-show="currentUser">
+          <a href="/seeProfil/{{currentUser.id}}" style="display: inline-block; padding: 0; margin-top: 6px;">
+          <img src="{{currentUser.image_user}}"
+               style="width: 30px; height: 30px; border-radius: 1em; padding-top: 4px;">
+          </a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="
+          padding: 10px; display: inline-block; height: 49px; margin-top: 0px;">
+            <b class="caret"></b></span>
+          </a>
           <ul class="dropdown-menu">
-            <li><a href="/seeProfil/{{currentUser.id}}"><h4 style="margin-left: 20px;"><b>{{currentUser.name}}</b></h4></a></li>
+            <li><a href="/seeProfil/{{currentUser.id}}"><h4 style="margin-left: 20px;"><b>{{currentUser.author_name}}</b></h4></a></li>
             <hr style="margin: 2px;">
-            <li><a href="/profil">Paramètres</a></li>
+            <li><a href="/profil">Modifier profil</a></li>
             <li><a ng-click="logout();">Deconnexion</a></li>
           </ul>
         </li>
@@ -272,5 +289,14 @@
 </div>
 
 
+<style>
+  .cropArea {
+    background: #E4E4E4;
+    overflow: hidden;
+    width:500px;
+    height:350px;
+  }
+
+</style>
 
 

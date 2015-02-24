@@ -4,6 +4,23 @@ angular.module('preambuleApp')
     .controller('NavbarCtrl', function ($upload, $scope, $location, $http,
                                         Auth, $rootScope, $route) {
 
+        $scope.myImage='';
+        $scope.myCroppedImage='';
+
+        var handleFileSelect=function(evt) {
+            var file=evt.currentTarget.files[0];
+            var reader = new FileReader();
+            reader.onload = function (evt) {
+                $scope.$apply(function($scope){
+                    $scope.myImage=evt.target.result;
+                });
+            };
+            reader.readAsDataURL(file);
+        };
+
+        angular.element(document.querySelector('#fileInput')).on('change',handleFileSelect);
+
+
         $scope.write_type = "normal";
 
 //        $scope.liste_auteurs = [{
@@ -85,6 +102,7 @@ angular.module('preambuleApp')
             $rootScope.bodyLock = false;
         };
 
+        $('#button_publish').removeAttr("disabled")
         $scope.preambuleSave = function (newPreambule) {
             console.log("BEGIN ADD PREAMBULE");
             console.log(newPreambule);
@@ -96,13 +114,42 @@ angular.module('preambuleApp')
             newPreambule.categorie[0] = newPreambule.categorie[0].name;
             newPreambule.categorie[1] = newPreambule.categorie[1].name;
 
-            $http.post('/api/createPreambule', newPreambule).success(function(reply) {
+            $http.get('/getDateNow').success(function(data) {
+                var url_elem = document.getElementById("avatar_url");
+                var s3upload = new S3Upload({
+                    file_dom_selector: 'fileOutput',
+                    s3_sign_put_url: '/sign_s3',
+                    s3_object_name : data,
+                    onProgress: function(percent, message) {
+//        status_elem.innerHTML = 'Upload progress: ' + percent + '% ' + message;
+                    },
+                    onFinishS3Put: function(public_url) {
+//        $('#new_upload_status').text('Upload completed. Uploaded to: '+ public_url);
+                        url_elem.value = public_url;
+                        $('#preview').attr('src', public_url);
+                        console.log("FINISH UPLOAD");
+                       ;
+                        $http.post('/api/createPreambule', newPreambule).success(function(reply) {
 //                var defineNameFile = "img_"+reply.id+".jpg";
 //                for (var i = 0; i < $scope.imageData.length; i++) {
 //                    var file = $scope.imageData[i];
 //                }
-                location.reload();
+                            location.reload();
+                        });
+                    },
+                    onError: function(status) {
+//        status_elem.innerHTML = 'Upload error: ' + status;
+                        console.log("############ERROR############");
+                        console.log(status);
+                    }
+                });
+            }).error(function(data, status) {
+                console.log("ERROR :");
+                console.log(status);
+                console.log(data);
             });
+
+
 
         };
 
@@ -125,14 +172,26 @@ angular.module('preambuleApp')
         $scope.legalPushTag = function (searchTag) {
             var isLegal = true;
             for(var i=0 ; i < $scope.newPreambule.tags.length ; i++) {
-                if($scope.newPreambule.tags[i] == searchTag)
+                if($scope.newPreambule.tags[i] === searchTag)
                     isLegal = false;
             }
+            console.log(searchTag);
+            if(!searchTag) {
+                isLegal = false;
+            }
+
             if(isLegal) {
                 $scope.newPreambule.tags.push(searchTag);
             }
-            else
-                Notifier.warning('Vous avez rentré 2 tags identiques.', 'Doublon de tag');
+            else {
+                if(!searchTag) {
+                    Notifier.warning('Vous avez rentré un tag vide.', 'Tag vide');
+
+                }
+                else {
+                    Notifier.warning('Vous avez rentré 2 tags identiques.', 'Doublon de tag');
+                }
+            }
         };
 
         $scope.loadingTag = ["meurtre", "humour", "rommance",
@@ -199,4 +258,6 @@ angular.module('preambuleApp')
             }
         };
         $scope.select_author_writting(4);
+
+
     });

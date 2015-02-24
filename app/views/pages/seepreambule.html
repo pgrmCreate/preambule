@@ -9,8 +9,16 @@
 
   .content_preambule > p::first-letter {
     font-size: 400%;
-    color: #666;
-    margin: 0.25em;
+    margin: 0px;
+    float: left;
+
+    color: #444;
+    float: left;
+    font-size: 50px;
+    margin-right: 0px;
+    margin-top: 0px;
+    padding: 0px;
+    border-radius: 5px;
   }
 </style>
 
@@ -30,14 +38,14 @@
             </span>
       </button>
       <br>
-      <button class="btn btn-danger" style="float: left; margin-top: 0.5em; "
-              ng-click="isOpenReport=true">
-              <span style="text-align:right; font-size: 1.3em; clear: both;"
-                    class="glyphicon glyphicon-exclamation-sign"></span>
-            <span style="text-align:right; margin-left: 1em; font-size: 1.3em;">
-            Report
-            </span>
-      </button>
+      <!--<button class="btn btn-danger" style="float: left; margin-top: 0.5em; "-->
+              <!--ng-click="isOpenReport=true">-->
+              <!--<span style="text-align:right; font-size: 1.3em; clear: both;"-->
+                    <!--class="glyphicon glyphicon-exclamation-sign"></span>-->
+            <!--<span style="text-align:right; margin-left: 1em; font-size: 1.3em;">-->
+            <!--Report-->
+            <!--</span>-->
+      <!--</button>-->
 
       <br> <br> <br>
 
@@ -59,17 +67,17 @@
   </div>
 
   <p style="font-size: 3em; text-align: justify; font-weight: bold; font-family: Bookman, Georgia, Times New Roman, serif;
-   text-align: center; margin-top: 0.5em; clear: both; color: RGB(16,76,153);">
+   text-align: center; margin-top: 200px; clear: both; color: RGB(16,76,153);">
     {{preambule_select.titre}}
     <!--L'oiseau de fer-->
   </p>
 
-  <img class="col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3"
-       src="{{'https://s3.amazonaws.com/preambule/users/'+preambule_select.photo}}"
-       style="margin-top: 2vh; margin-bottom: 7vh; ">
+  <!--<img class="col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3"-->
+       <!--src="{{'https://s3.amazonaws.com/preambule/users/'+preambule_select.photo}}"-->
+       <!--style="margin-top: 2vh; margin-bottom: 7vh; ">-->
 
   <div class="content_preambule">
-    <p style="white-space: pre-line; margin-top: 10px;">{{preambule_select.content}}</p>
+    <p style=" white-space: pre-line;">{{preambule_select.content}}</p>
   </div>
   <div style=" clear: both; margin-top: 1em; margin-right: 2em; margin-bottom: 1em;">
     <button class="btn btn-primary" style="margin-left: 45%;" ng-hide="EcrireSuite"
