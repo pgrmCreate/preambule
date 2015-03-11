@@ -2,9 +2,11 @@
   <div style="width: 200px; height: 200px; background: URL('{{user_select.image_user}}');
    margin: 0px auto 20px auto; background-size: cover;">
   </div>
-  <h1 style="text-align: center; color: #ccc;">
-    {{user_select.name}}
-  </h1>
+  <h3 style="text-align: center; color: #ccc; font-size: 2.8em;">
+    {{user_select.author_name}} <br>
+    <span style="font-size: 0.4em; font-style: italic;">{{user_select.birthday_old}}</span>
+  </h3>
+
 
   <div class="tabset_editProfile" ng-init="profil_select_menu='all'" style="padding-top: 0;">
 
@@ -30,7 +32,7 @@
 </div>
 
 
-<div style="margin-top: 100px; background: white; border-radius: 0.5em;" class="container">
+<div style="margin-top: 15px; border-radius: 0.5em;" class="container">
 
  <br>
 

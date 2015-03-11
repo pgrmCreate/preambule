@@ -104,7 +104,7 @@
         </p>
 
         <img class="col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3"
-             src="{{'https://s3.amazonaws.com/preambule/users/'+preambuleSelect.photo}}"
+             src="{{preambuleSelect.photo}}"
              style="margin-top: 2vh; margin-bottom: 7vh; ">
 
         <div class="content_preambule">
@@ -222,7 +222,7 @@
            ng-class="{ovh : show_preambule}">
 
         <h2  ng-click="display_preambule(preambule, $index);">{{preambule.titre}}</h2>
-        <div style="background: URL({{'https://s3.amazonaws.com/preambule/users/'+preambule.photo}});
+        <div style="background: URL({{preambule.photo}});
   height: 100%; background-size: cover; background-position: center; position: relative;
   border: 1px solid grey;">
           <div class="animated add_voile"

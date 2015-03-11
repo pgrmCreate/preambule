@@ -49,8 +49,6 @@ angular.module('preambuleApp')
             $scope.filter_tagsPicked = userFilter.pickedFilter.tags;
             $scope.f_categorie = userFilter.pickedFilter.categorie;
 
-            console.log("Filters :");
-            console.log(userFilter.pickedFilter);
             $http({
                 url: '/api/preambuleLoad',
                 method: 'GET',
@@ -59,27 +57,37 @@ angular.module('preambuleApp')
                     maxLoad : cursorLoad
                 }
             }).success(function(reply) {
+                var allPreambuleLoaded = reply.allDocs;
+                var allUsers = reply.allUsers;
+                for(var i=0 ; i < allUsers.length ; i++) {
+                    for(var i2=0 ; i2 < allPreambuleLoaded.length ; i2++) {
+                        if(allUsers[i]._id === allPreambuleLoaded[i2].auteur._id) {
+                            allPreambuleLoaded[i2].auteur.name = allUsers[i].author_name;
+
+                        }
+                    }
+                }
                 var description_short = "";
-                for(var i=0 ; i < reply.length ; i++ ) {
-                    reply[i].displayWrapper = false;
-//                    if(reply[i].description.length > 340) {
-//                        console.log(reply[i].description.length);
-//                        for(var i2=0 ; i2 < reply[i].description.length ; i2++) {
+                for(var i=0 ; i < allPreambuleLoaded.length ; i++ ) {
+                    allPreambuleLoaded[i].displayWrapper = false;
+//                    if(allPreambuleLoaded[i].description.length > 340) {
+//                        console.log(allPreambuleLoaded[i].description.length);
+//                        for(var i2=0 ; i2 < allPreambuleLoaded[i].description.length ; i2++) {
 //                            if(i2 < 310) {
-//                                description_short += reply[i].description[i2];
+//                                description_short += allPreambuleLoaded[i].description[i2];
 //                          e
 //                        }
 //                        description_short += " [...]";
-//                        reply[i].description = description_short;
+//                        allPreambuleLoaded[i].description = description_short;
 //                        console.log("Now : "+description_short);
 //                    }
                 }
                 console.log(cursorLoad);
-                console.log(reply);
+                console.log(allPreambuleLoaded);
                 console.log($scope.preambules.length);
-                 if(reply.length > 0) {
-                    for(i=cursorLoad ; i < (reply.length+cursorLoad) ; i++) {
-                        $scope.preambules[i] = reply[i-cursorLoad];
+                 if(allPreambuleLoaded.length > 0) {
+                    for(i=cursorLoad ; i < (allPreambuleLoaded.length+cursorLoad) ; i++) {
+                        $scope.preambules[i] = allPreambuleLoaded[i-cursorLoad];
                     }
                      cursorLoad += 12;
                 }

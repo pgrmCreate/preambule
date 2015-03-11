@@ -193,6 +193,13 @@
           console.log(JSON.stringify(response));
         });
 
+        ////////////// PERMISSION
+        FB.login(function(response) {
+          // handle the response
+        }, {scope: 'email,user_likes'});
+        ////////////////////////////
+
+
       };
 
       // Load the SDK asynchronously

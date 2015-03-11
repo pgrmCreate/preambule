@@ -251,6 +251,10 @@ div.modal_ecrire {
     font-size: 1.3em;
     color: #444;
     font-family: Open-Sans, sherif;
+
+    span {
+      color: red;
+    }
   }
 }
 
@@ -327,12 +331,14 @@ div.listing_tags {
   text-align: justify;
   text-justify:auto;
   width: 80%;
-  margin-left: 10%;
+  margin: auto;
   border-top: 1px solid #aaa;
   border-bottom: 1px solid grey;
-  font-family: Open-Sans, sherif;
-  font-size: 1.2em;
+//  font-family: Open-Sans, sherif;
+  font-size: 1.3em;
   clear: both;
+  max-width: 640px;
+  font-family: palatino, Georgia, serif;
 }
 
 .close_window {
@@ -372,11 +378,48 @@ div.listing_tags {
   animation: zoomIn;
 }
 
+.blackLike {
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
+  border: 5px double white;
+  background: #000000;
+  color: white;
+  font-size: 1.2em;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  transition: 0.6s all;
+  cursor: pointer;
+}
+
+.blackLike:hover {
+  background: #aaa;
+  color: #444;
+}
+
+.input_edit_preambule {
+  margin-top: 45px;
+  input {
+    padding: 0.5em;
+    height: 30px;
+    border-radius: 4px;
+    border: 1px solid grey;
+  }
+
+  textarea {
+    padding: 0.5em;
+    height: 30em;
+    border-radius: 4px;
+    border: 1px solid grey;
+  }
+
+}
+
 .modal-container_typeWrite {
   display: block;
   overflow-y: scroll;
   position: fixed;
-  top: 51px;
+  top: 55px;
   right: 0;
   height: 100%;
   width: 100%;
@@ -385,8 +428,17 @@ div.listing_tags {
   animation: zoomIn;
 }
 
+div.form-group {
+  div {
+    border-top: 1px solid #bbb;
+    h5 {
+      background: white;
+      padding: 0.25em;
+    }
+  }
+}
 .modal {
-  margin-top: 55px;
+  margin-top: 49px;
   display: block;
   height: 90vh;
   .modal_content {
@@ -558,7 +610,7 @@ div.listing_tags {
   .label {
     width: 30%;
     display: inline-block;
-    color: black;
+    color: #666;
     text-align: left;
   }
 
@@ -573,7 +625,12 @@ div.listing_tags {
 
     textarea {
       width: 80%;
-      height: 15vh;
+      height: 15em;
+    }
+
+    select {
+      height: 25px;
+      margin-top: 5px;
     }
   }
 }
@@ -822,6 +879,32 @@ div.listing_tags {
     background: none;
     margin-left: 4px;
     position: relative;
+  }
+
+  button.btn-warning {
+    background: #fc971f;
+  }
+
+  button.btn-warning:hover {
+    background: #cc771f;
+  }
+
+  button.btn-danger {
+    background: #ac2925;
+  }
+
+  button.btn-danger:hover {
+    background: #aa1111;
+  }
+
+
+
+  button.btn-success {
+    background: #5cb85c;
+  }
+
+  button.btn-success:hover {
+    background: #438643;
   }
 
   button:focus {

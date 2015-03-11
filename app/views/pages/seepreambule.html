@@ -8,36 +8,40 @@
   }
 
   .content_preambule > p::first-letter {
-    font-size: 400%;
-    margin: 0px;
+    font-family: 'Raleway','HelveticaNeueW02-UltLt', 'HelveticaNeue-UltraLight', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
     float: left;
+    font-size: 6em;
+    line-height: .8em;
+    padding-top: 0.06em;
+    padding-right: 0.2em;
+    padding-left: 0.2em;
+    position: relative;
+    bottom: 90px;
+    clear: none;
+  }
 
-    color: #444;
-    float: left;
-    font-size: 50px;
-    margin-right: 0px;
-    margin-top: 0px;
-    padding: 0px;
-    border-radius: 5px;
+  .stMainServices {
+    height: 30px !important;
+  }
+
+  .glyphicon-thumbs-up {
+    cursor: pointer;
   }
 </style>
 
 <div class="container-fluid" style="margin-top: 50px; background: #ffffff; width: 70vw;">
+
   <div style="position: fixed; margin-left: 0.75vw; left: 3px; top: 0%; margin-top: 55px;
           background: white; border-radius: 10px; padding: 9px 5px 5px 5px; width: 13vw;">
-    <span class='st_facebook_large' displayText='Facebook'></span>
-    <span class='st_twitter_large' displayText='Tweet'></span>
+    <span style="margin-left: 24px; font-size: 1.4em; text-decoration: underline;">{{preambule_select.votes_size}}</span> <br>
+    <div class="blackLike" ng-click="voteTry(preambule_select)">
+    <span style="margin: 5px 0 0 7px;" class="glyphicon glyphicon-thumbs-up"></span> <br>
+    </div>
+    <span class='st_facebook_button' displayText='Facebook'></span> <br>
+    <span class='st_twitter_button' displayText='Facebook'></span>
     <br>
-    <span style="color: #6495ed;">{{preambuleSelect.votes.length}} votes</span>
     <div style="margin-top: 14px;">
-      <button class="btn btn-success" style="float: left; "
-              ng-click="voteTry(preambuleSelect)">
-        <span style="text-align:right; font-size: 1.3em; clear: both;" class="glyphicon glyphicon-thumbs-up"></span>
-            <span style="text-align:right; margin-left: 1em; font-size: 1.3em;">
-            J'aime
-            </span>
-      </button>
-      <br>
       <!--<button class="btn btn-danger" style="float: left; margin-top: 0.5em; "-->
               <!--ng-click="isOpenReport=true">-->
               <!--<span style="text-align:right; font-size: 1.3em; clear: both;"-->
@@ -46,13 +50,10 @@
             <!--Report-->
             <!--</span>-->
       <!--</button>-->
-
-      <br> <br> <br>
-
-      <div ng-show="currentUser.name == preambuleSelect.auteur.name"
+      <div ng-show="currentUser.author_name == preambule_select.auteur.name"
            style="margin-top: 16px;">
         <button ng-click="mode_edit=true; pickedEdit_preambule=preambuleSelect;" ng-hide="mode_edit"
-                style="" class="btn btn-primary">
+                style="" class="btn-sm btn-primary">
           <span class="glyphicon glyphicon-pencil" style="margin-right: 10px;"></span>
           Editer
         </button>
@@ -62,12 +63,31 @@
           <span class="glyphicon glyphicon-eye-open" style="margin-right: 10px;"></span>
           Regarder
         </button>
+
+        <br>
+        <button ng-click="deletePreambule()"
+                style=" clear: both; margin-top: 10px;" class="btn-sm btn-danger">
+          <span class="glyphicon glyphicon-send" style="margin-right: 10px;"></span>
+          Effacer
+        </button>
       </div>
     </div>
   </div>
 
-  <p style="font-size: 3em; text-align: justify; font-weight: bold; font-family: Bookman, Georgia, Times New Roman, serif;
-   text-align: center; margin-top: 200px; clear: both; color: RGB(16,76,153);">
+  <div ng-show="mode_edit" class="input_edit_preambule">
+    <h3>Titre</h3>
+    <input class="col-xs-3" type="text" placeholder="{{preambule_select.titre}}" ng-model="preambule_select.titre">
+    <br>
+    <h3>Préambule</h3>
+    <textarea class="col-xs-9" ng-model="preambule_select.content"></textarea>
+
+    <button style="clear: both; margin-top: 20px;" ng-click="edit_preambule_active()"
+            class="btn btn-success col-xs-offset-8">Editer</button>
+    </div>
+
+  <div ng-hide="mode_edit">
+  <p style="font-size: 1.7em; letter-spacing: 0.2em; text-align: justify; font-weight: bold; font-family: HelveticaNeue, Arial, Verdana, sans-serif;
+   text-align: center; margin-top: 35px; margin-bottom: 24px; clear: both; color: #333;">
     {{preambule_select.titre}}
     <!--L'oiseau de fer-->
   </p>
@@ -79,12 +99,15 @@
   <div class="content_preambule">
     <p style=" white-space: pre-line;">{{preambule_select.content}}</p>
   </div>
+
+
   <div style=" clear: both; margin-top: 1em; margin-right: 2em; margin-bottom: 1em;">
     <button class="btn btn-primary" style="margin-left: 45%;" ng-hide="EcrireSuite"
             ng-click="EcrireSuite=true;">Je veux ecrire la suite !</button>
 
     <button class="btn btn-primary" style="margin-left: 45%;" ng-show="EcrireSuite"
             ng-click="EcrireSuite=false;">Revenir evaluer</button>
+  </div>
   </div>
 
   <form ng-show="EcrireSuite" ng-submit="preambuleSuiteSave(newPreambuleSuite, preambule_select);">

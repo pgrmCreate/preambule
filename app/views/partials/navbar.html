@@ -55,6 +55,7 @@
 
             <div class="form-group" style="clear: both;">
               <div class="col-md-4 col-md-offset-2" style="margin-top: 30px;">
+                <h5>Titre du préambule</h5>
                 <input ng-model="newPreambule.titre"
                        id="titre" name="titre" type="text"
                        placeholder="Titre du préambule" class="form-control input-md">
@@ -64,18 +65,20 @@
             <!-- Text input-->
             <div class="form-group">
               <div class="col-md-4 col-md-offset-2">
+                <h5>Description du préambule</h5>
                 <textarea placeholder="Courte description" ng-model="newPreambule.description"
                           class="form-control" id="content" name="content"
                           ng-change="charaRemaining = 400 - newPreambule.description.length;"
                           style="height: 6em;" maxlength="400" ng-init="charaRemaining = 400;"></textarea>
-                <span class="help-block" style="display: inline-block;">facultatif</span>
-                <span style="margin-left: 1em;"><b>{{charaRemaining}}</b> caractères restants</span>
+                <span class="help-block" style="display: inline-block; margin-bottom: 0;">facultatif</span>
+                <span style="margin-left: 1em; margin-bottom: 0;"><b>{{charaRemaining}}</b> caractères restants</span>
               </div>
             </div>
 
             <!-- Textarea -->
             <div class="form-group">
               <div class="col-md-8 col-md-offset-2">
+                <h5>Préambule</h5>
                 <textarea placeholder="Preambule de {{newPreambule.auteur.name}}" ng-model="newPreambule.content"
                           class="form-control" style="height: 400px; overflow-y: scroll;"
                           id="content" name="content"></textarea>
@@ -84,18 +87,19 @@
 
             <div class="form-group">
               <div class="col-md-8 col-md-offset-2">
-                <p style="margin-bottom: 0.5em;">Selectionnez votre couverture</p>
+                <div style="display: none;">
+                <p style="margin-bottom: 0.5em;">Selectionnez l'image de votre Préambule</p>
                 <input accept="image/jpeg"
                        style="margin-bottom: 1.5em;" onchange="angular.element(this).scope().upload_image()" type="file" id="files">
-                <!--<input style="margin-bottom: 1.5em;" type="file" ng-file-select="onFileSelect($files)">-->
+                <input style="margin-bottom: 1.5em;" type="file" ng-file-select="onFileSelect($files)">
                 <img class="col-md-3" id="preview" src="images/navbar/image-add.png" alt=""
                      style="background: lightsteelblue;"/>
-
+                </div>
 
   <div>
     <div>Selectionner une image: <input type="file" id="fileInput" /></div>
     <div class="cropArea">
-      <img-crop area-type="square" result-image-quality=1 image="myImage" result-image="myCroppedImage"></img-crop>
+      <img-crop id="avatar_url2" area-type="square" result-image-quality=1 image="myImage" result-image="myCroppedImage"></img-crop>
     </div>
     <div>Image du preambule:</div>
     <div><img ng-src="{{myCroppedImage}}" id="fileOutput"/></div>
@@ -108,6 +112,7 @@
 
             <div class="form-group">
               <div class="col-md-6 col-md-offset-2">
+                <h5>Tags</h5>
 
                 <input class="col-md-8" ng-model="searchTag" type="text"
                        placeholder="Tags" class="form-control input-md"
@@ -133,20 +138,23 @@
             </div>
 
 
-            <div class="col-md-6 col-md-offset-2" style="padding: 4px; height: 75px;">
-              <label for="sel1">Catégorie</label>
+              <div class="form-group">
+            <div class="col-md-6 col-md-offset-2" style="padding: 4px; height: 75px; border: none;">
+              <h5>Catégorie</h5>
+
               <select class="form-control" id="sel1"
                       ng-model="newPreambule.categorie[0]"
                       ng-options="item as item.name for item in items">
               </select>
             </div>
 
-            <div class="col-md-6 col-md-offset-2" style="padding: 4px; height: 75px;">
+            <div class="col-md-6 col-md-offset-2" style="padding: 4px; height: 75px; border: none;">
               <select class="form-control" id="sel1"
                       ng-model="newPreambule.categorie[1]"
                       ng-options="item as item.name for item in items">
               </select>
             </div>
+              </div>
 
 
             <div class="col-md-6 col-md-offset-2">

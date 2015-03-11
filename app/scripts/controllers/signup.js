@@ -3,20 +3,26 @@
 angular.module('preambuleApp')
     .controller('SignupCtrl', function ($scope, Auth, $location, $http) {
         $scope.user = {
-            sex : 'rien'
+            gender : 'rien'
         };
         $scope.errors = {};
-        $scope.user.birth = {};
+        $scope.user.birthday = {};
 
         $scope.choose_birth_day = [];
         for(var i=1 ; i <= 31 ; i++) {
             $scope.choose_birth_day.push(i);
         }
-        $scope.user.birth.day = 1;
+        $scope.user.birthday.day = 1;
 
+        $scope.user.birthday.month = 1;
         $scope.choose_birth_month = ['janvier',	'février',	'mars',	'avril',	'mai',	'juin',
             'juillet',	'août',	'septembre',	'octobre',	'novembre',	'décembre'];
-        $scope.user.birth.month = 'janvier';
+
+        $scope.choose_birth_year = [];
+        for(i=1970 ; i <= 2012 ; i++) {
+            $scope.choose_birth_year.push(i);
+        }
+        $scope.user.birthday.year = 1970;
 
         $scope.allCountry = ["Afghanistan", "Aland Islands", "Albania", "Algeria", "American Samoa", "Andorra", "Angola",
             "Anguilla", "Antarctica", "Antigua And Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria",
@@ -58,11 +64,7 @@ angular.module('preambuleApp')
             "Venezuela, Bolivarian Republic of", "Viet Nam", "Virgin Islands, British", "Virgin Islands, U.S.",
             "Wallis and Futuna", "Western Sahara", "Yemen", "Zambia", "Zimbabwe"];
 
-        $scope.choose_birth_year = [];
-        for(i=1970 ; i <= 2012 ; i++) {
-            $scope.choose_birth_year.push(i);
-        }
-        $scope.user.birth.year = 1970;
+
 
         $('#DDDQ').click(function (e) {
             console.log(e.target);
@@ -77,18 +79,25 @@ angular.module('preambuleApp')
 
         $scope.register = function(form) {
             console.log($scope.user);
-            if($scope.user.sex !== "rien") {
+            if($scope.user.gender !== "rien") {
                 $scope.submitted = true;
-                $scope.check_picture=true;
+
 
                 if(form.$valid) {
                     if($('#avatar_url_account').attr('value') === "images/general_small_elements/anonymous.png") {
+                        $scope.check_picture=true;
                         $('#ok_checkPicture').click(function () {
                             Auth.createUser({
                                 name: $scope.user.name,
                                 author_name: $scope.user.author_name,
                                 email: $scope.user.email,
                                 password: $scope.user.password,
+                                gender: $scope.user.gender,
+                                birthday: {
+                                    day : $scope.user.birthday.day,
+                                    month : $scope.user.birthday.month,
+                                    year : $scope.user.birthday.year},
+                                country: $scope.user.country,
                                 image_user : $('#avatar_url_account').attr('value')
                             })
                                 .then( function() {
@@ -113,6 +122,12 @@ angular.module('preambuleApp')
                             author_name: $scope.user.author_name,
                             email: $scope.user.email,
                             password: $scope.user.password,
+                            gender: $scope.user.gender,
+                            birthday: {
+                                day : $scope.user.birthday.day,
+                                month : $scope.user.birthday.month,
+                                year : $scope.user.birthday.year},
+                            country: $scope.user.country,
                             image_user : $('#avatar_url_account').attr('value')
                         })
                             .then( function() {

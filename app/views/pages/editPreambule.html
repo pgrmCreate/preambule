@@ -40,7 +40,7 @@
        class="preambule_articles repeat-item"
        ng-class="{ovh : show_preambule}">
     <h2 ng-click="display_preambule(preambule);">{{preambule.titre}}</h2>
-    <div style="background: URL({{'https://s3.amazonaws.com/preambule/users/'+preambule.photo}});
+    <div style="background: URL({{preambule.photo}});
   height: 100%; background-size: cover; background-position: center; position: relative;
   border: 1px solid grey;">
       <div class="animated add_voile"

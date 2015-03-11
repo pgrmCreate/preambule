@@ -18,12 +18,6 @@ angular.module('preambuleApp')
 //            $scope.preambules = reply;
 //        });
 
-        $scope.display_preambule = function (preambule) {
-
-            $scope.preambuleSelect = preambule;
-            $scope.show_preambule = true;
-            $rootScope.bodyLocker = true;
-        };
 
         $scope.saveEdit = function (preambulePicked) {
             $http.post('/api/updatePreambule', preambulePicked)

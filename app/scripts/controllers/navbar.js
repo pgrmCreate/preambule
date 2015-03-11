@@ -102,22 +102,22 @@ angular.module('preambuleApp')
             $rootScope.bodyLock = false;
         };
 
-        $('#button_publish').removeAttr("disabled")
+        $('#button_publish').removeAttr("disabled");
         $scope.preambuleSave = function (newPreambule) {
             console.log("BEGIN ADD PREAMBULE");
             console.log(newPreambule);
-            var parts = $('#avatar_url').val().split("/");
-            var result = parts[parts.length - 1];
 
-            newPreambule.photo = result;
             // EXTRACT ONLY NAME
             newPreambule.categorie[0] = newPreambule.categorie[0].name;
             newPreambule.categorie[1] = newPreambule.categorie[1].name;
 
             $http.get('/getDateNow').success(function(data) {
                 var url_elem = document.getElementById("avatar_url");
+//                var canvasPicked = "bob";
+//                var dataURL = canvas.toDataURL('image/jpeg', 0.5);
+//                url_elem = dataURItoBlob(dataURL);
                 var s3upload = new S3Upload({
-                    file_dom_selector: 'fileOutput',
+                    file_dom_selector: 'fileInput',
                     s3_sign_put_url: '/sign_s3',
                     s3_object_name : data,
                     onProgress: function(percent, message) {
@@ -126,9 +126,12 @@ angular.module('preambuleApp')
                     onFinishS3Put: function(public_url) {
 //        $('#new_upload_status').text('Upload completed. Uploaded to: '+ public_url);
                         url_elem.value = public_url;
-                        $('#preview').attr('src', public_url);
+//                        $('#preview').attr('src', public_url);
                         console.log("FINISH UPLOAD");
-                       ;
+                        var parts = $('#fileInput').val().split("/");
+                        var result = parts[parts.length - 1];
+                        newPreambule.photo = public_url;
+//                        alert(public_url);
                         $http.post('/api/createPreambule', newPreambule).success(function(reply) {
 //                var defineNameFile = "img_"+reply.id+".jpg";
 //                for (var i = 0; i < $scope.imageData.length; i++) {
@@ -148,9 +151,6 @@ angular.module('preambuleApp')
                 console.log(status);
                 console.log(data);
             });
-
-
-
         };
 
         $scope.onFileSelect = function (files) {
@@ -259,5 +259,13 @@ angular.module('preambuleApp')
         };
         $scope.select_author_writting(4);
 
+        function dataURItoBlob(dataURI) {
+            var binary = atob(dataURI.split(',')[1]);
+            var array = [];
+            for(var i = 0; i < binary.length; i++) {
+                array.push(binary.charCodeAt(i));
+            }
+            return new Blob([new Uint8Array(array)], {type: 'image/jpeg'});
+        }
 
     });

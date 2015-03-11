@@ -41,6 +41,7 @@ angular.module('preambuleApp')
           password: user.password
         }, function(user) {
           $rootScope.currentUser = user;
+
           return cb();
         }, function(err) {
           return cb(err);
@@ -112,6 +113,7 @@ angular.module('preambuleApp')
        * @return {Object} user
        */
       currentUser: function() {
+
         return User.get();
       },
 

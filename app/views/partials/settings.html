@@ -1,14 +1,12 @@
-<div ng-include="'partials/navbar.html'"></div>
-
-<div class="row">
+<div class="row" ng-controller="SettingsCtrl">
   <div class="col-sm-12">
-    <h1>Change Password</h1>
+    <h1>Changer mot de passe</h1>
   </div>
   <div class="col-sm-12">
     <form class="form" name="form" ng-submit="changePassword(form)" novalidate>
     	
       <div class="form-group">
-        <label>Current Password</label>
+        <label>Mot de passe actuel</label>
 
         <input type="password" name="password" class="form-control" ng-model="user.oldPassword"
                mongoose-error/>    
@@ -18,20 +16,32 @@
       </div>
 
       <div class="form-group">
-        <label>New Password</label>
+        <label>Nouveau mot de passe</label>
 
         <input type="password" name="newPassword" class="form-control" ng-model="user.newPassword" 
                ng-minlength="3"
                required/>
         <p class="help-block"
            ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)">
-          Password must be at least 3 characters.
+          Le mot de passe doit avoir au moins 3 caracteres.
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label>Confirmer nouveau mot de passe</label>
+
+        <input type="password" name="newPassword" class="form-control" ng-model="confirmNewPassword"
+               ng-minlength="3"
+               required/>
+        <p class="help-block"
+           ng-show="formError_confirmPassword">
+          Le mot de passe et la confirmation du mot de passe doit etre similaire
         </p>
       </div>
 
       <p class="help-block"> {{ message }} </p>
 
-      <button class="btn btn-lg btn-primary" type="submit">Save changes</button>
+      <button class="btn btn-lg btn-primary" type="submit">Changer mot de passe</button>
     </form>
   </div>
 </div>
