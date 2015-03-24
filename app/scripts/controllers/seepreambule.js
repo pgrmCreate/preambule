@@ -8,11 +8,21 @@
  * Controller of the preambuleApp
  */
 angular.module('preambuleApp')
-    .controller('SeepreambuleCtrl', function ($scope, $http, $location, $rootScope, $timeout) {
+    .controller('SeepreambuleCtrl', function ($scope, $http, $location, $rootScope, $timeout, $route) {
 
 
         var id_select = $location.path().split('/')[2];
-
+        $scope.items = [
+            { value: 'Enfants', name: 'Enfants' },
+            { value: 'Drame', name: 'Drame' },
+            { value: 'Horreur', name: 'Horreur' },
+            { value: 'Humour', name: 'Humour' },
+            { value: 'Fiction', name: 'Fiction' },
+            { value: 'Mystères', name: 'Mystères' },
+            { value: 'Thriller', name: 'Thriller' },
+            { value: 'Science-Fiction', name: 'Science-Fiction' },
+            { value: 'Fantaisie', name: 'Fantaisie' }
+        ];
 
         $http({
             url: '/api/OnePreambuleLoad',
@@ -76,6 +86,15 @@ angular.module('preambuleApp')
                         });
                 }
             }
+        };
+
+        $scope.preambuleSuiteSave = function(newSuite, sourcePreambule) {
+            var sendData = sourcePreambule;
+            sendData.contentSuite = newSuite.contentSuite;
+            sendData.categorieFinal = newSuite.categorieFinal;
+            $http.post('/api/createSuitePreambule', sendData).success(function(reply) {
+                $route.reload();
+            });
         };
 
     });

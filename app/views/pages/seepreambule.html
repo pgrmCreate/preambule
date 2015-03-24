@@ -114,6 +114,11 @@
     <textarea style="height: 30vh; width: 80%; margin-left: 10%;"
               ng-model="newPreambuleSuite.contentSuite"></textarea>
     <br>
+    <select class="form-group" style="height: 2em; width: 80%; max-width: 120px; margin-left: 10%;"
+            ng-model="newPreambuleSuite.categorieFinal">
+      <option ng-repeat="item in items" value="{{item.value}}">{{item.name}}</option>
+    </select>
+    <br>
     <button class="btn btn-primary" style="margin-left: 10%;">Publier la suite</button>
   </form>
 </div>

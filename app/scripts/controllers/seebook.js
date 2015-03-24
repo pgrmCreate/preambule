@@ -10,8 +10,15 @@
 angular.module('preambuleApp')
   .controller('SeebookCtrl', function ($scope, $location, $http, $rootScope, $timeout) {
         var id_select = $location.path().split('/')[2];
+        var page_select = $location.path().split('/')[3];
 
-        $scope.page = 1;
+        if(typeof page_select === 'undefined') {
+            $scope.page = 1;
+        }
+        else {
+            $scope.page = page_select;
+        }
+
         $http({
             url: '/api/preambuleSuiteLoadOne',
             method: 'GET',

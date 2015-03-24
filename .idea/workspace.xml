@@ -25,10 +25,19 @@
     <splitter split-orientation="horizontal" split-proportion="0.4803759">
       <split-first>
         <leaf>
-          <file leaf-file-name="seepreambule.html" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/views/pages/seepreambule.html">
+          <file leaf-file-name="bibliotheque.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/views/pages/bibliotheque.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="36" column="101" selection-start="970" selection-end="970" vertical-scroll-proportion="-1.3333334" vertical-offset="594" max-vertical-offset="2214">
+                <state line="9" column="54" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="1080">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="seebook.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/views/pages/seebook.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="46" column="45" selection-start="1146" selection-end="1146" vertical-scroll-proportion="0.0" vertical-offset="828" max-vertical-offset="1476">
                   <folding />
                 </state>
               </provider>
@@ -37,7 +46,7 @@
           <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/views/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="32" column="5" selection-start="1549" selection-end="1579" vertical-scroll-proportion="-10.105263" vertical-offset="0" max-vertical-offset="4590">
+                <state line="56" column="67" selection-start="2798" selection-end="2798" vertical-scroll-proportion="0.0" vertical-offset="1008" max-vertical-offset="4716">
                   <folding />
                 </state>
               </provider>
@@ -46,43 +55,26 @@
           <file leaf-file-name="signup.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/views/partials/signup.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="138" column="10" selection-start="6100" selection-end="6100" vertical-scroll-proportion="-26.0" vertical-offset="1710" max-vertical-offset="3096">
+                <state line="138" column="10" selection-start="6100" selection-end="6100" vertical-scroll-proportion="0.0" vertical-offset="2484" max-vertical-offset="3168">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="seeprofil.html" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/views/pages/seeprofil.html">
+          <file leaf-file-name="login.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/views/partials/login.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="38" column="41" selection-start="1281" selection-end="1291" vertical-scroll-proportion="0.0" vertical-offset="684" max-vertical-offset="3978">
+                <state line="71" column="30" selection-start="2492" selection-end="2492" vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="1530">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="profile.html" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/views/pages/profile.html">
+          <file leaf-file-name="navbar.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/views/partials/navbar.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="14" column="0" selection-start="663" selection-end="663" vertical-scroll-proportion="-9.333333" vertical-offset="0" max-vertical-offset="2808">
-                  <folding>
-                    <element signature="n#style#0;n#button#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#div#3;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="editPreambule.html" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/views/pages/editPreambule.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="75" column="32" selection-start="3197" selection-end="3197" vertical-scroll-proportion="-37.333332" vertical-offset="324" max-vertical-offset="1584">
-                  <folding>
-                    <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                  </folding>
+                <state line="197" column="44" selection-start="9091" selection-end="9091" vertical-scroll-proportion="0.0" vertical-offset="3546" max-vertical-offset="6300">
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -90,34 +82,34 @@
           <file leaf-file-name="main.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/views/partials/main.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="227" column="37" selection-start="10738" selection-end="10738" vertical-scroll-proportion="3.2962964" vertical-offset="4013" max-vertical-offset="4878">
+                <state line="165" column="45" selection-start="7741" selection-end="7741" vertical-scroll-proportion="0.0" vertical-offset="2970" max-vertical-offset="5184">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="users.js" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="users.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/lib/controllers/users.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="48" column="26" selection-start="1107" selection-end="1107" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="2016">
+                <state line="44" column="33" selection-start="979" selection-end="979" vertical-scroll-proportion="0.0" vertical-offset="792" max-vertical-offset="2034">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="server.js" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/dist/server.js">
+          <file leaf-file-name="preambule.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/lib/models/preambule.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="22" column="0" selection-start="728" selection-end="728" vertical-scroll-proportion="0.4567474" vertical-offset="0" max-vertical-offset="2286">
+                <state line="12" column="13" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="738">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="settings.html" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/views/partials/settings.html">
+          <file leaf-file-name="allInfos.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/views/pages/infos/allInfos.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="37" column="67" selection-start="1441" selection-end="1441" vertical-scroll-proportion="-24.666666" vertical-offset="0" max-vertical-offset="954">
+                <state line="22" column="9" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0" vertical-offset="396" max-vertical-offset="558">
                   <folding />
                 </state>
               </provider>
@@ -127,14 +119,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="profile.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/scripts/controllers/profile.js">
+          <file leaf-file-name="main.scss" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/styles/main.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="130" column="64" selection-start="4979" selection-end="4979" vertical-scroll-proportion="0.0" vertical-offset="1854" max-vertical-offset="4536">
-                  <folding>
-                    <marker date="1426082819039" expanded="true" signature="335:11897" placeholder="{...}" />
-                    <marker date="1426082819039" expanded="true" signature="4705:4783" placeholder="{&quot;url&quot;: '/api/myPreambuleLoad'...}" />
-                  </folding>
+                <state line="1088" column="24" selection-start="17622" selection-end="17622" vertical-scroll-proportion="0.0" vertical-offset="19150" max-vertical-offset="19998">
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -142,34 +131,25 @@
           <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="51" column="12" selection-start="1791" selection-end="2532" vertical-scroll-proportion="0.0" vertical-offset="849" max-vertical-offset="5148">
+                <state line="61" column="17" selection-start="2174" selection-end="2174" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="5148">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="editPreambule.js" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/scripts/controllers/editPreambule.js">
+          <file leaf-file-name="api.js" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/lib/controllers/api.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="15" column="36" selection-start="438" selection-end="438" vertical-scroll-proportion="0.29834256" vertical-offset="0" max-vertical-offset="905">
+                <state line="157" column="0" selection-start="4788" selection-end="4788" vertical-scroll-proportion="0.9596413" vertical-offset="1970" max-vertical-offset="6570">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="signup.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/scripts/controllers/signup.js">
+          <file leaf-file-name="facebook.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/scripts/services/facebook.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="104" column="36" selection-start="6803" selection-end="6823" vertical-scroll-proportion="0.0" vertical-offset="1242" max-vertical-offset="3528">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="settings.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/scripts/controllers/settings.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="21" column="67" selection-start="907" selection-end="907" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="756">
+                <state line="3" column="15" selection-start="60" selection-end="61" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="1260">
                   <folding />
                 </state>
               </provider>
@@ -178,8 +158,19 @@
           <file leaf-file-name="seepreambule.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/scripts/controllers/seepreambule.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="67" column="24" selection-start="2338" selection-end="2338" vertical-scroll-proportion="0.0" vertical-offset="661" max-vertical-offset="1566">
+                <state line="13" column="8" selection-start="309" selection-end="356" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="1908">
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="seebook.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/scripts/controllers/seebook.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="19" column="9" selection-start="540" selection-end="540" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="1026">
+                  <folding>
+                    <marker date="1426613495958" expanded="true" signature="272:1348" placeholder="{...}" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -187,16 +178,25 @@
           <file leaf-file-name="user.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/lib/models/user.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="38" column="12" selection-start="760" selection-end="768" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="3798">
+                <state line="38" column="12" selection-start="760" selection-end="768" vertical-scroll-proportion="0.0" vertical-offset="684" max-vertical-offset="3798">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="api.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/lib/controllers/api.js">
+          <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/dist/server.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="17" column="1" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0" vertical-offset="3348" max-vertical-offset="6570">
+                <state line="22" column="0" selection-start="728" selection-end="728" vertical-scroll-proportion="0.0" vertical-offset="31" max-vertical-offset="2286">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="SuitePreambule.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/lib/models/SuitePreambule.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="11" column="16" selection-start="210" selection-end="222" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="828">
                   <folding />
                 </state>
               </provider>
@@ -205,7 +205,7 @@
           <file leaf-file-name="routes.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/lib/routes.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="16" column="33" selection-start="350" selection-end="350" vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="1854">
+                <state line="60" column="10" selection-start="1493" selection-end="1493" vertical-scroll-proportion="0.0" vertical-offset="931" max-vertical-offset="1836">
                   <folding />
                 </state>
               </provider>
@@ -223,16 +223,11 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/scripts/controllers/partials/modules/connect_facebook.js" />
-        <option value="$PROJECT_DIR$/app/views/partials/modules/connect_facebook.html" />
-        <option value="$PROJECT_DIR$/lib/config/dummydata.js" />
         <option value="$PROJECT_DIR$/dist/views/partials/main.html" />
         <option value="$PROJECT_DIR$/app/views/profile.html" />
         <option value="$PROJECT_DIR$/app/views/editPreambule.html" />
         <option value="$PROJECT_DIR$/app/scripts/S3upload.js" />
         <option value="$PROJECT_DIR$/dist/views/editPreambule.html" />
-        <option value="$PROJECT_DIR$/lib/models/SuitePreambule.js" />
-        <option value="$PROJECT_DIR$/app/views/partials/login.html" />
         <option value="$PROJECT_DIR$/lib/models/preambule.js" />
         <option value="$PROJECT_DIR$/dist/views/partials/navbar.html" />
         <option value="$PROJECT_DIR$/lib/controllers/session.js" />
@@ -241,20 +236,11 @@
         <option value="$PROJECT_DIR$/app/scripts/controllers/preambules_finished.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/user.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/bibliotheque.js" />
-        <option value="$PROJECT_DIR$/app/views/pages/bibliotheque.html" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/seebook.js" />
-        <option value="$PROJECT_DIR$/app/views/pages/seebook.html" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
-        <option value="$PROJECT_DIR$/lib/routes.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/login.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/facebook.js" />
-        <option value="$PROJECT_DIR$/app/scripts/app.js" />
         <option value="$PROJECT_DIR$/node_modules/grunt-node-inspector/node_modules/node-inspector/front-end/externs.js" />
         <option value="$PROJECT_DIR$/app/views/pages/seeprofil.html" />
-        <option value="$PROJECT_DIR$/app/views/index.html" />
-        <option value="$PROJECT_DIR$/app/views/partials/main.html" />
-        <option value="$PROJECT_DIR$/app/views/partials/navbar.html" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/navbar.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/auth.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/main.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/seeprofil.js" />
@@ -262,17 +248,31 @@
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/signup.js" />
         <option value="$PROJECT_DIR$/lib/models/user.js" />
-        <option value="$PROJECT_DIR$/app/styles/main.scss" />
         <option value="$PROJECT_DIR$/app/views/partials/signup.html" />
         <option value="$PROJECT_DIR$/app/views/partials/settings.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/settings.js" />
-        <option value="$PROJECT_DIR$/app/views/pages/seepreambule.html" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/seepreambule.js" />
         <option value="$PROJECT_DIR$/app/views/pages/profile.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/editPreambule.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/profile.js" />
         <option value="$PROJECT_DIR$/lib/controllers/api.js" />
         <option value="$PROJECT_DIR$/lib/controllers/users.js" />
+        <option value="$PROJECT_DIR$/lib/models/SuitePreambule.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/seepreambule.js" />
+        <option value="$PROJECT_DIR$/app/views/pages/seepreambule.html" />
+        <option value="$PROJECT_DIR$/lib/routes.js" />
+        <option value="$PROJECT_DIR$/app/views/pages/infos/contact.html" />
+        <option value="$PROJECT_DIR$/app/views/pages/infos/allInfos.html" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/infos.js" />
+        <option value="$PROJECT_DIR$/app/views/partials/login.html" />
+        <option value="$PROJECT_DIR$/app/views/index.html" />
+        <option value="$PROJECT_DIR$/app/views/partials/main.html" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/navbar.js" />
+        <option value="$PROJECT_DIR$/app/views/partials/navbar.html" />
+        <option value="$PROJECT_DIR$/app/views/pages/bibliotheque.html" />
+        <option value="$PROJECT_DIR$/app/scripts/app.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/seebook.js" />
+        <option value="$PROJECT_DIR$/app/styles/main.scss" />
+        <option value="$PROJECT_DIR$/app/views/pages/seebook.html" />
         <option value="$PROJECT_DIR$/dist/server.js" />
       </list>
     </option>
@@ -493,51 +493,9 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/styles/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="108" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/bootstrap-select.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="20538" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/preambules.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="648">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/partials/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="30" selection-start="2492" selection-end="2492" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="1530" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/preambules_finished.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.0" vertical-offset="110" max-vertical-offset="1584" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/pages/preambules_finished.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="128" column="103" selection-start="5448" selection-end="5448" vertical-scroll-proportion="0.0" vertical-offset="2304" max-vertical-offset="3348" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/models/SuitePreambule.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="10" selection-start="303" selection-end="309" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/pages/bibliotheque.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="6" selection-start="1806" selection-end="1806" vertical-scroll-proportion="0.0" vertical-offset="11" max-vertical-offset="864" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/pages/seebook.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="25" selection-start="117" selection-end="117" vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="1008" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Gruntfile.js">
@@ -545,19 +503,9 @@
         <state line="295" column="18" selection-start="7515" selection-end="7515" vertical-scroll-proportion="-14.833333" vertical-offset="4865" max-vertical-offset="9954" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/controllers/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="5" selection-start="456" selection-end="456" vertical-scroll-proportion="0.35801104" vertical-offset="0" max-vertical-offset="905" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/bibliotheque.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="78" column="54" selection-start="2928" selection-end="2928" vertical-scroll-proportion="0.0" vertical-offset="1075" max-vertical-offset="1980" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/facebook.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="49" selection-start="738" selection-end="738" vertical-scroll-proportion="0.0" vertical-offset="247" max-vertical-offset="1260" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/config/passport.js">
@@ -590,19 +538,9 @@
         <state line="10" column="16" selection-start="302" selection-end="775" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="576" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/seebook.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="38" selection-start="862" selection-end="862" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/grunt-node-inspector/node_modules/node-inspector/front-end/externs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="4" selection-start="1610" selection-end="1610" vertical-scroll-proportion="0.08071749" vertical-offset="0" max-vertical-offset="9648" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="40" selection-start="1691" selection-end="1699" vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="4842" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/services/session.js">
@@ -610,21 +548,9 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="905" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/partials/navbar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="98" selection-start="7291" selection-end="7291" vertical-scroll-proportion="-24.666666" vertical-offset="1998" max-vertical-offset="5526" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/navbar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="27" selection-start="322" selection-end="324" vertical-scroll-proportion="-6.0" vertical-offset="0" max-vertical-offset="4986" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/pages/seeprofil.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="41" selection-start="1281" selection-end="1291" vertical-scroll-proportion="0.0" vertical-offset="684" max-vertical-offset="3978">
-          <folding />
-        </state>
+        <state line="38" column="41" selection-start="1281" selection-end="1291" vertical-scroll-proportion="0.0" vertical-offset="684" max-vertical-offset="3978" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/404.html">
@@ -634,98 +560,134 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/seeprofil.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="33" selection-start="1811" selection-end="1824" vertical-scroll-proportion="0.0" vertical-offset="936" max-vertical-offset="2556">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/styles/main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="888" column="22" selection-start="14263" selection-end="14263" vertical-scroll-proportion="-4.631579" vertical-offset="15720" max-vertical-offset="19062">
-          <folding />
-        </state>
+        <state line="52" column="33" selection-start="1811" selection-end="1824" vertical-scroll-proportion="0.0" vertical-offset="936" max-vertical-offset="2556" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/services/auth.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="30" selection-start="3171" selection-end="3171" vertical-scroll-proportion="0.0" vertical-offset="810" max-vertical-offset="2430">
-          <folding />
-        </state>
+        <state line="124" column="30" selection-start="3171" selection-end="3171" vertical-scroll-proportion="0.0" vertical-offset="810" max-vertical-offset="2430" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="59" selection-start="480" selection-end="491" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2286">
-          <folding />
-        </state>
+        <state line="17" column="59" selection-start="480" selection-end="491" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2286" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/services/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="13" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+        <state line="0" column="13" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/signup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="36" selection-start="6803" selection-end="6823" vertical-scroll-proportion="0.0" vertical-offset="1098" max-vertical-offset="3528" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="67" selection-start="907" selection-end="907" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="756" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/pages/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="663" selection-end="663" vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="2808" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/pages/editPreambule.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="32" selection-start="3197" selection-end="3197" vertical-scroll-proportion="0.73214287" vertical-offset="681" max-vertical-offset="1548" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/styles/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="905" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/pages/seepreambule.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="132" selection-end="477" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="2340" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/editPreambule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="36" selection-start="438" selection-end="438" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="864" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="12" selection-start="1952" selection-end="2004" vertical-scroll-proportion="-0.74663675" vertical-offset="1782" max-vertical-offset="4536" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/partials/settings.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="67" selection-start="1441" selection-end="1441" vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="954" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/pages/infos/allInfos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="9" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0" vertical-offset="396" max-vertical-offset="558">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/infos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="39" selection-start="332" selection-end="332" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/partials/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="30" selection-start="2492" selection-end="2492" vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="1530">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/partials/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="227" column="37" selection-start="10738" selection-end="10738" vertical-scroll-proportion="3.2962964" vertical-offset="4013" max-vertical-offset="4878">
+        <state line="165" column="45" selection-start="7741" selection-end="7741" vertical-scroll-proportion="0.0" vertical-offset="2970" max-vertical-offset="5184">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/partials/signup.html">
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/navbar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="138" column="10" selection-start="6100" selection-end="6100" vertical-scroll-proportion="-26.0" vertical-offset="1710" max-vertical-offset="3096">
+        <state line="111" column="53" selection-start="3551" selection-end="3551" vertical-scroll-proportion="0.0" vertical-offset="1278" max-vertical-offset="5292" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/partials/navbar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="197" column="44" selection-start="9091" selection-end="9091" vertical-scroll-proportion="0.0" vertical-offset="3546" max-vertical-offset="6300">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/index.html">
+    <entry file="file://$PROJECT_DIR$/app/views/pages/bibliotheque.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="5" selection-start="1549" selection-end="1579" vertical-scroll-proportion="-10.105263" vertical-offset="0" max-vertical-offset="4590">
+        <state line="9" column="54" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="1080">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/signup.js">
+    <entry file="file://$PROJECT_DIR$/lib/controllers/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="36" selection-start="6803" selection-end="6823" vertical-scroll-proportion="0.0" vertical-offset="1098" max-vertical-offset="3528">
+        <state line="18" column="5" selection-start="456" selection-end="456" vertical-scroll-proportion="0.35801104" vertical-offset="0" max-vertical-offset="905" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/middleware.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="905" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/models/SuitePreambule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="16" selection-start="210" selection-end="222" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="828">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/partials/settings.html">
+    <entry file="file://$PROJECT_DIR$/lib/routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="67" selection-start="1441" selection-end="1441" vertical-scroll-proportion="-24.666666" vertical-offset="0" max-vertical-offset="954">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/settings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="67" selection-start="907" selection-end="907" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="756">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/pages/seepreambule.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="101" selection-start="970" selection-end="970" vertical-scroll-proportion="-1.3333334" vertical-offset="594" max-vertical-offset="2214">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/seepreambule.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="24" selection-start="2338" selection-end="2338" vertical-scroll-proportion="0.0" vertical-offset="661" max-vertical-offset="1566">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/models/preambule.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="14" selection-start="356" selection-end="366" vertical-scroll-proportion="0.37790054" vertical-offset="0" max-vertical-offset="905">
+        <state line="60" column="10" selection-start="1493" selection-end="1493" vertical-scroll-proportion="0.0" vertical-offset="931" max-vertical-offset="1836">
           <folding />
         </state>
       </provider>
@@ -737,76 +699,93 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
+    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="12" selection-start="1791" selection-end="2532" vertical-scroll-proportion="0.0" vertical-offset="849" max-vertical-offset="5148">
+        <state line="180" column="12" selection-start="6283" selection-end="6283" vertical-scroll-proportion="0.85524863" vertical-offset="2466" max-vertical-offset="4986" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/facebook.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="15" selection-start="60" selection-end="61" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="1260">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/pages/profile.html">
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/seepreambule.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="663" selection-end="663" vertical-scroll-proportion="-9.333333" vertical-offset="0" max-vertical-offset="2808">
+        <state line="13" column="8" selection-start="309" selection-end="356" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1908">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/seebook.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="9" selection-start="540" selection-end="540" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1026">
           <folding>
-            <element signature="n#style#0;n#button#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+            <marker date="1426613495958" expanded="true" signature="272:1348" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/pages/editPreambule.html">
+    <entry file="file://$PROJECT_DIR$/app/styles/main.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="32" selection-start="3197" selection-end="3197" vertical-scroll-proportion="-37.333332" vertical-offset="324" max-vertical-offset="1584">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/profile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="64" selection-start="4979" selection-end="4979" vertical-scroll-proportion="0.0" vertical-offset="1854" max-vertical-offset="4536">
-          <folding>
-            <marker date="1426082819039" expanded="true" signature="335:11897" placeholder="{...}" />
-            <marker date="1426082819039" expanded="true" signature="4705:4783" placeholder="{&quot;url&quot;: '/api/myPreambuleLoad'...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/controllers/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="1" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0" vertical-offset="3348" max-vertical-offset="6570">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="33" selection-start="350" selection-end="350" vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="1854">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/controllers/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="26" selection-start="1107" selection-end="1107" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="2016">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/editPreambule.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="36" selection-start="438" selection-end="438" vertical-scroll-proportion="0.29834256" vertical-offset="0" max-vertical-offset="905">
+        <state line="1088" column="24" selection-start="17622" selection-end="17622" vertical-scroll-proportion="0.0" vertical-offset="19150" max-vertical-offset="19998">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dist/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="728" selection-end="728" vertical-scroll-proportion="0.4567474" vertical-offset="0" max-vertical-offset="2286">
+        <state line="22" column="0" selection-start="728" selection-end="728" vertical-scroll-proportion="0.0" vertical-offset="31" max-vertical-offset="2286">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/pages/seebook.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="45" selection-start="1146" selection-end="1146" vertical-scroll-proportion="0.0" vertical-offset="828" max-vertical-offset="1476">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="67" selection-start="2798" selection-end="2798" vertical-scroll-proportion="0.0" vertical-offset="1008" max-vertical-offset="4716">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/partials/signup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="138" column="10" selection-start="6100" selection-end="6100" vertical-scroll-proportion="0.0" vertical-offset="2484" max-vertical-offset="3168">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="17" selection-start="2174" selection-end="2174" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="5148">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/models/preambule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="13" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="738">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/controllers/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="33" selection-start="979" selection-end="979" vertical-scroll-proportion="0.0" vertical-offset="792" max-vertical-offset="2034">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/controllers/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="157" column="0" selection-start="4788" selection-end="4788" vertical-scroll-proportion="0.9596413" vertical-offset="1970" max-vertical-offset="6570">
           <folding />
         </state>
       </provider>

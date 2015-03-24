@@ -96,6 +96,23 @@ angular.module('preambuleApp')
             $rootScope.bodyLock = true;
         };
 
+        $scope.showShortMenu = function() {
+
+            if($('#shortMenu').css('height') === '1px') {
+                $('#shortMenu').css('height', 'auto');
+            }
+            else {
+                $('#shortMenu').css('height', '1px');
+
+            }
+        };
+
+        $('#shortMenu>.nav>li').click(function () {
+            $scope.$apply(function () {
+                $('#shortMenu').css('height', '1px');
+            });
+        });
+
         $scope.closeWriting = function () {
             $rootScope.modal_write_preambule = false;
             $rootScope.display_modal = false;

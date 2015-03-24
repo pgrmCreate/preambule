@@ -100,6 +100,7 @@
         <script src="scripts/controllers/seepreambule.js"></script>
         <script src="scripts/controllers/bibliotheque.js"></script>
         <script src="scripts/controllers/preambules_finished.js"></script>
+        <script src="scripts/controllers/infos.js"></script>
         <script src="scripts/services/auth.js"></script>
         <script src="scripts/services/session.js"></script>
         <script src="scripts/services/user.js"></script>
@@ -159,8 +160,11 @@
       // Button.  See the onlogin handler attached to it in the sample
       // code below.
       function checkLoginState() {
+        alert("checkAll");
         FB.getLoginStatus(function(response) {
+          console.log("GOOD WE CAN START");
           statusChangeCallback(response);
+          angular.element(document.getElementById('bodyMain')).scope().service_facebook.connected(response);
         });
       }
       window.fbAsyncInit = function() {
@@ -192,15 +196,17 @@
           console.log("TEST");
           console.log(JSON.stringify(response));
         });
-
-        ////////////// PERMISSION
-        FB.login(function(response) {
-          // handle the response
-        }, {scope: 'email,user_likes'});
-        ////////////////////////////
-
-
       };
+
+
+
+        function showFBConnection() {
+          ////////////// PERMISSION
+          FB.login(function(response) {
+            // handle the response
+          }, {scope: 'email,user_likes'});
+          ////////////////////////////
+        }
 
       // Load the SDK asynchronously
       (function(d, s, id) {

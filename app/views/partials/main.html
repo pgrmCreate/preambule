@@ -177,7 +177,7 @@
       </select>
 
       <form ng-submit="filter_tags_add();" style="display: inline-block;
-  vertical-align: top;">
+  vertical-align: top;" class="hidden-xs">
         <div class="button_addTag">
           <input type="text" placeholder="Tags"
                  ng-model="filter_tagsPicked_input"><span
@@ -195,7 +195,7 @@
     <!--INFO RIGHT FOLOW-->
     <div style="border-radius: 0.5em; width: 260px; vertical-align: top; height: auto;
        display: inline-block; float: right; margin-top: -30px;">
-      <div style="position: fixed; width: 260px;">
+      <div style="position: fixed; width: 260px;" class="hidden-xs">
       <div style="display: inline-block; margin-top: -1px; vertical-align: top; margin-left: 45px;">
         <span class='st_twitterfollow_large' displayText='Twitter Follow' st_username='sharethis'></span>
       </div>
@@ -206,7 +206,14 @@
 
       <div style="height: auto; margin-top: 10px; background: #ffffff; border-radius: 0.7em; padding: 0.5em;">
         <p style="background: white; color: #777; margin-bottom: 0;">
-          © 2014 Préambule / À propos / Nous contacter / Aide / Conditions / Confidentialité / Cookies
+          © 2014 Préambule /
+          <a href="/infos/apropos">À propos</a> /
+          <a href="/infos/contact">Nous contacter</a> /
+          <a href="/infos/aide">Aide</a> /
+          <a href="/infos/conditions">Conditions</a> /
+          <a href="/infos/confident">Confidentialité</a> /
+          <a href="/infos/cookies">Cookies</a> /
+          <a href="/infos/aide">Aide</a>
         </p>
       </div>
       </div>
@@ -227,7 +234,7 @@
   border: 1px solid grey;">
           <div class="animated add_voile"
                ng-click="display_preambule(preambule, $index);">
-            <h5 style="height: 75%;">
+            <h5>
               {{preambule.description}}
             </h5>
             <!--<h5 style="display: inline-block; margin: 0; font-weight: bold;">TAG :</h5>-->

@@ -46,7 +46,7 @@ ul.home_pictures {
 
 .add_voile {
   cursor: pointer;
-  position: absolute;
+  position: relative;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -54,6 +54,18 @@ ul.home_pictures {
   padding: 0.5em;
   color: #222;
   transition: all 0.6s;
+
+  h5 {
+    display: block;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    padding: 0 0.5em 0 0.5em;
+    margin: auto 0 auto 0;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+   font-family: courgette normal;
+  }
 }
 
 .add_voile:hover {
@@ -62,6 +74,7 @@ ul.home_pictures {
   opacity: 1;
   //  width: 93.8%;
 }
+
 
 div.preambule_articles {
   list-style: none;
@@ -675,16 +688,19 @@ div.form-group {
 
 }
 
-.navbar-toggle {
+.navbar-header > .navbar-toggle {
   border: none;
   margin-top: 0;
-  padding-top: 0;
+  padding: 0 0 0 20px;
+  margin-bottom: 0;
+
   .menu_nav_links_short {
     margin-left: 0px;
+    margin-bottom: 0;
     li {
       display: inline-block;
       a {
-        padding: 13px 12px 12px 12px;
+        padding: 7px 12px 8px 12px;
 
       }
 
@@ -698,6 +714,23 @@ div.form-group {
       border-bottom: 4px solid $bleu_preambule;
       box-sizing: border-box;
     }
+
+    .button_right {
+      background: none;
+      float: right;
+      transition: all 0.6s;
+
+    }
+
+    .button_right:hover {
+      background: lightsteelblue;
+    }
+  }
+
+  #shortMenu {
+    height: 0px;
+    display: block;
+    overflow: hidden;
   }
 
   .menu_nav_links_short:hover {
@@ -705,8 +738,8 @@ div.form-group {
   }
 }
 
-.navbar-toggle:hover {
-  background: none !important;
+.navbar-header > .navbar-toggle:hover {
+  background: none;
 }
 
 .icone_navbar {
@@ -984,7 +1017,7 @@ div.form-group {
     background: white;
     overflow-x: hidden;
     overflow-y: hidden;
-    height: 200px;
+    height: 250px;
     position: relative;
 
     li {
@@ -992,7 +1025,6 @@ div.form-group {
       width: 25%;
       position: absolute;
       display: inline-block;
-      background: darkseagreen;
       transition: all 1s;
 
       a {
@@ -1013,7 +1045,9 @@ div.form-group {
     }
 
     li:hover {
-
+      h5 {
+        display: none;
+      }
       .informations_details {
         visibility: visible;
       }
@@ -1042,12 +1076,30 @@ div.form-group {
 .book_reader {
   list-style: none;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   height: 80vh;
 
   li {
     position: absolute;
     transition: all 1s;
     width: 100%;
+
+    .contentRead {
+      box-sizing: border-box;
+      color: rgb(51, 51, 51);
+      display: block;
+      font-family: 'Open Sans', serif;
+      font-size: 18.18181800842285px;
+      height: 1756.3636474609375px;
+      line-height: 23.636363983154297px;
+      margin-bottom: 10px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0px;
+      text-align: justify;
+      white-space: pre-line;
+      width: 640px;
+    }
   }
 }

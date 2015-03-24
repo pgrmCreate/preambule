@@ -2,6 +2,17 @@
   <div style="margin-top: 30px;">
     <h1>
       <a style="color: rgb(16, 76, 153); font-size: 0.7em;"
+         href="/">Préambules de nos auteurs</a>
+    </h1>
+  </div>
+
+  <div class="listing_container">
+      <h3 style="margin-top: 10px; font-style: italic;">A venir</h3>
+  </div>
+
+  <div>
+    <h1>
+      <a style="color: rgb(16, 76, 153); font-size: 0.7em;"
          href="/preambules_finished">Préambules terminés par nos aventuriers</a>
     </h1>
   </div>
@@ -15,9 +26,10 @@
 
       <li ng-repeat="preambule in allLoadPreambules track by $index"
           style="left: {{base_width_slide*$index - lib_index}}px;" id="sliden_{{$index}}">
+        <h5 style="text-align: center; margin: 0">{{preambule.auteur.name}} a poursuivi</h5>
         <a href="seebook/{{preambule._id}}" target="_self">
           <div class="thumbnail img-responsive"
-               style="background: URL('https://s3.amazonaws.com/preambule/users/{{preambule.photo}}');
+               style="background: URL('{{preambule.photo}}');
                    background-size: cover;
                    margin-bottom: 0; height: 100%; width: 100%;">
 

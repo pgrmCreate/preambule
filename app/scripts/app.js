@@ -178,9 +178,17 @@ angular.module('preambuleApp', [
               templateUrl: '/pages/seebook.html',
               controller: 'SeebookCtrl'
             })
+            .when('/seebook/:idBook/:page', {
+              templateUrl: '/pages/seebook.html',
+              controller: 'SeebookCtrl'
+            })
             .when('/preambules_finished', {
               templateUrl: '/pages/preambules_finished.html',
               controller: 'PreambulesFinishedCtrl'
+            })
+            .when('/infos/:infoPicked', {
+              templateUrl: '/pages/infos/allInfos.html',
+              controller: 'InfosCtrl'
             })
             .otherwise({
                 redirectTo: '/'
